@@ -20,7 +20,11 @@
     "@angular/platform-server": "^22.2.0",
     "@angular/router": "^22.2.0",
     "@angular/ssr": "^22.2.3",
+    "@ngrx/signals": "^22.0.1",
+    "@primeng/themes": "^21.0.4",
     "express": "^5.1.0",
+    "primeicons": "^8.0.2",
+    "primeng": "^22.1.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

@@ -1,0 +1,75 @@
+<p-toolbar class="!bg-zinc-700 !rounded-none !text-white">
+    <ng-template #start>
+        <div class="text-xl pl-4">Angular Signal Kanban</div>
+    </ng-template>
+    <ng-template #center></ng-template>
+    <ng-template #end>
+        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" size="large"
+            shape="circle" />
+    </ng-template>
+</p-toolbar>
+<p-sidebar-layout>
+    <p-sidebar>
+        <p-sidebar-spacer />
+        <p-sidebar-aside>
+            <p-sidebar-panel>
+                <p-sidebar-header></p-sidebar-header>
+                <p-sidebar-content class="pl-4 pt-4">
+                    <p-sidebar-group class="">
+                        <p-sidebar-group-label class="!text-xl !pb-4">Navigation</p-sidebar-group-label>
+                        <p-sidebar-group-content>
+                            <p-sidebar-menu>
+
+                                <p-sidebar-menu-item class="!mb-4">
+                                    <button pSidebarMenuButton [isActive]="true" (click)="navigateTo('')">
+                                        <svg class="!w-[25px]" data-p-icon="home"></svg>
+                                        <span class="ml-2 text-lg">Home</span>
+                                    </button>
+                                </p-sidebar-menu-item>
+
+                                <p-sidebar-menu-item class="!mb-4">
+                                    <button pSidebarMenuButton (click)="navigateTo('add-member')">
+                                        <svg class="!w-[25px]" data-p-icon="plus"></svg>
+                                        <span class="ml-2 text-lg">Add Member</span>
+                                    </button>
+                                </p-sidebar-menu-item>
+
+                                <p-sidebar-menu-item class="!mb-4">
+                                    <button pSidebarMenuButton (click)="navigateTo('member-list')">
+                                        <svg class="!w-[25px]" data-p-icon="plus"></svg>
+                                        <span class="ml-2 text-lg">Member List</span>
+                                    </button>
+                                </p-sidebar-menu-item>
+
+                                <p-sidebar-menu-item>
+                                    <button pSidebarMenuButton (click)="navigateTo('profile')">
+                                        <!-- <svg data-p-icon="users"></svg> -->
+                                        <span class="ml-2 text-lg">Profile</span>
+                                    </button>
+                                </p-sidebar-menu-item>
+
+                            </p-sidebar-menu>
+                        </p-sidebar-group-content>
+                    </p-sidebar-group>
+                </p-sidebar-content>
+                <p-sidebar-footer>...</p-sidebar-footer>
+            </p-sidebar-panel>
+        </p-sidebar-aside>
+    </p-sidebar>
+    <p-sidebar-main>
+        <div class="flex">
+            <!-- @if(){ -->
+            <p-breadcrumb [model]="memberStore.breadcrumbs()" [home]="home" />
+            <!-- } -->
+
+        </div>
+        <router-outlet />
+    </p-sidebar-main>
+
+</p-sidebar-layout>
+<!-- <div class="p-6">
+    <div class="flex h-full justify-between">
+        <add-member-form class="h-full" (memberAdded)="addMember($event)"></add-member-form>
+        <member-list [members]="members()" (memberDeleted)="deleteMember($event)"></member-list>
+    </div>
+</div> -->

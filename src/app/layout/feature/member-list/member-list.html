@@ -1,0 +1,29 @@
+<div class="border border-zinc-200 rounded-md">
+    <header class="flex justify-center text-xl p-4 bg-zinc-200">Member List</header>
+    <p-table [value]="memberStore.items()">
+        <ng-template #header>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-member>
+
+            <tr class="">
+                <td class="break-all "> {{ member.id }}</td>
+                <td class="break-all ">{{ member.name }}</td>
+                <td class="break-all ">{{ member.email }}</td>
+                <td class="break-all ">{{ member.role }}</td>
+                <td>
+                    <button pButton severity="danger" (click)="onDelete(member.id)">Remove</button>
+                </td>
+
+            </tr>
+
+
+        </ng-template>
+    </p-table>
+</div>

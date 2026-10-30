@@ -1,0 +1,19 @@
+<div class="w-[300px] border border-solid  border-zinc-200 rounded-md p-4">
+    <div class="pb-4 text-lg">Add New Member</div>
+    <div class="mb-4">
+        <p>Name:</p>
+        <input pInputText [invalid]="!name" type="text" class="w-full" [(ngModel)]="name" placeholder="Name" />
+    </div>
+    <div class="mb-4">
+        <p>Email:</p>
+        <input pInputText type="email" class="w-full" [(ngModel)]="email" placeholder="Email Address" />
+    </div>
+
+    <div class="mb-4">
+        <p>Role:</p>
+        <p-select [options]="roleOptions" class="w-full" [(ngModel)]="role" optionLabel="label" optionValue="value"
+            placeholder="Select Role" class="w-full" />
+    </div>
+    <button pButton [disabled]="name()==='' && email()===''" class=" w-full" (click)="onSubmit()" type="submit">+ Add
+        Member</button>
+</div>

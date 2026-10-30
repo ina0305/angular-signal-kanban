@@ -1,0 +1,95 @@
+{
+  "currentUser": {
+    "userId": "usr_99823",
+    "name": "Olivia R.",
+    "avatarUrl": "https://example.com",
+    "totalBalance": 120.00,
+    "currency": "USD",
+    "status": "Owed to You"
+  },
+  "recentGroupTransactions": [
+    {
+      "transactionId": "tx_001",
+      "title": "Dinner with Team",
+      "category": "Dining",
+      "timestamp": "2026-10-28T07:59:00Z",
+      "timeAgo": "2h ago",
+      "totalAmount": 135.00,
+      "userShareAmount": -45.00,
+      "paidBy": "usr_002",
+      "involvedMembers": [
+        {"name": "Olivia R.", "avatar": "https://example.com"},
+        {"name": "Alex M.", "avatar": "https://example.com"},
+        {"name": "Sarah K.", "avatar": "https://example.com"}
+      ]
+    },
+    {
+      "transactionId": "tx_002",
+      "title": "Electricity Bill",
+      "category": "Utilities",
+      "timestamp": "2026-10-28T06:59:00Z",
+      "timeAgo": "3h ago",
+      "totalAmount": 240.00,
+      "userShareAmount": -80.00,
+      "paidBy": "usr_003",
+      "involvedMembers": [
+        {"name": "Olivia R.", "avatar": "https://example.com"},
+        {"name": "Alex M.", "avatar": "https://example.com"},
+        {"name": "Sarah K.", "avatar": "https://example.com"}
+      ]
+    },
+    {
+      "transactionId": "tx_003",
+      "title": "Netflix Subscription",
+      "category": "Entertainment",
+      "timestamp": "2026-10-28T07:59:00Z",
+      "timeAgo": "2h ago",
+      "totalAmount": 15.00,
+      "userShareAmount": -15.00,
+      "paidBy": "usr_99823",
+      "involvedMembers": [
+        {"name": "Olivia R.", "avatar": "https://example.com"}
+      ]
+    },
+    {
+      "transactionId": "tx_004",
+      "title": "Groceries",
+      "category": "Groceries",
+      "timestamp": "2026-10-28T04:59:00Z",
+      "timeAgo": "5h ago",
+      "totalAmount": 220.00,
+      "userShareAmount": -110.00,
+      "paidBy": "usr_002",
+      "involvedMembers": [
+        {"name": "Olivia R.", "avatar": "https://example.com"},
+        {"name": "Alex M.", "avatar": "https://example.com"}
+      ]
+    },
+    {
+      "transactionId": "tx_005",
+      "title": "Uber to Airport",
+      "category": "Travel",
+      "timestamp": "2026-10-28T07:59:00Z",
+      "timeAgo": "2h ago",
+      "totalAmount": 105.00,
+      "userShareAmount": -35.00,
+      "paidBy": "usr_004",
+      "involvedMembers": [
+        {"name": "Olivia R.", "avatar": "https://example.com"},
+        {"name": "Sarah K.", "avatar": "https://example.com"},
+        {"name": "Tom H.", "avatar": "https://example.com"}
+      ]
+    }
+  ],
+  "spendingCategories": {
+    "totalSpent": 285.00,
+    "currency": "USD",
+    "breakdown": [
+      { "category": "Food", "percentage": 35, "amount": 99.75 },
+      { "category": "Utilities", "percentage": 25, "amount": 71.25 },
+      { "category": "Groceries", "percentage": 20, "amount": 57.00 },
+      { "category": "Transport", "percentage": 12, "amount": 34.20 },
+      { "category": "Entertainment", "percentage": 8, "amount": 22.80 }
+    ]
+  }
+}
