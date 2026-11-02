@@ -1,8 +1,14 @@
-import { Component, inject, output, signal } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { Component, inject } from "@angular/core";
+
+// Form
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+
+// PrimeNG
 import { InputTextModule } from "primeng/inputtext";
 import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
+
+// Store
 import { MemberStore } from "../store/member.store";
 
 @Component({
@@ -11,15 +17,16 @@ import { MemberStore } from "../store/member.store";
     FormsModule,
     InputTextModule,
     SelectModule,
-    ButtonModule
+    ButtonModule,
+    ReactiveFormsModule
   ],
   templateUrl: './add-member-form.html',
 })
+
 export class AddMemberFormComponent {
-  readonly memberStore = inject(MemberStore)
-  name = signal('');
-  email = signal('');
-  role = signal('Viewer');
+  readonly memberStore = inject(MemberStore);
+  private fb = inject(FormBuilder);
+  addForm: FormGroup;
 
   readonly roleOptions = [
     {
@@ -28,22 +35,26 @@ export class AddMemberFormComponent {
     {
       label: 'Edittor', value: 'edittor'
     },
-    { label: 'Viewer', value: 'viwer' }
+    { label: 'Viewer', value: 'viewer' }
   ];
 
-  // memberAdded = output<{ name: string; email: string; role: string }>();
+  constructor() {
+    this.addForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      role: ['viewer', [Validators.required]]
+    })
+  }
 
   onSubmit() {
-    if (!this.name() || !this.email()) return;
 
-    this.memberStore.addMember({
-      name: this.name(),
-      email: this.email(),
-      role: this.role()
+    if (this.addForm.invalid) return;
+    const formData = this.addForm.value;
+    this.memberStore.addMember(formData);
+    this.addForm.reset({
+      name: '',
+      email: '',
+      role: 'viewer'
     })
-
-    this.name.set('');
-    this.email.set('');
-    this.role.set('Viewer');
   }
 }

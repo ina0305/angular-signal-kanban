@@ -8,43 +8,46 @@
             shape="circle" />
     </ng-template>
 </p-toolbar>
-<p-sidebar-layout>
+<p-sidebar-layout class="!bg-slate-50">
     <p-sidebar>
         <p-sidebar-spacer />
         <p-sidebar-aside>
             <p-sidebar-panel>
                 <p-sidebar-header></p-sidebar-header>
-                <p-sidebar-content class="pl-4 pt-4">
-                    <p-sidebar-group class="">
-                        <p-sidebar-group-label class="!text-xl !pb-4">Navigation</p-sidebar-group-label>
+                <p-sidebar-content class="border-r border-zinc-200">
+                    <p-sidebar-group>
                         <p-sidebar-group-content>
                             <p-sidebar-menu>
 
-                                <p-sidebar-menu-item class="!mb-4">
-                                    <button pSidebarMenuButton [isActive]="true" (click)="navigateTo('')">
-                                        <svg class="!w-[25px]" data-p-icon="home"></svg>
-                                        <span class="ml-2 text-lg">Home</span>
+                                <p-sidebar-menu-item>
+                                    <button pSidebarMenuButton [class.active-button]="router.url==='/'"
+                                        (click)="navigateTo('/')">
+                                        <svg data-p-icon="home" [size]="30"></svg>
+                                        <span>Home</span>
                                     </button>
                                 </p-sidebar-menu-item>
 
-                                <p-sidebar-menu-item class="!mb-4">
-                                    <button pSidebarMenuButton (click)="navigateTo('add-member')">
-                                        <svg class="!w-[25px]" data-p-icon="plus"></svg>
-                                        <span class="ml-2 text-lg">Add Member</span>
+                                <p-sidebar-menu-item>
+                                    <button pSidebarMenuButton [class.active-button]="router.url === '/add-member'"
+                                        (click)="navigateTo('/add-member')">
+                                        <svg data-p-icon="plus" [size]="30"></svg>
+                                        <span>Add Member</span>
                                     </button>
                                 </p-sidebar-menu-item>
 
-                                <p-sidebar-menu-item class="!mb-4">
-                                    <button pSidebarMenuButton (click)="navigateTo('member-list')">
-                                        <svg class="!w-[25px]" data-p-icon="plus"></svg>
+                                <p-sidebar-menu-item>
+                                    <button pSidebarMenuButton [class.active-button]="router.url === '/member-list'"
+                                        (click)="navigateTo('/member-list')">
+                                        <svg data-p-icon="users" [size]="30"></svg>
                                         <span class="ml-2 text-lg">Member List</span>
                                     </button>
                                 </p-sidebar-menu-item>
 
                                 <p-sidebar-menu-item>
-                                    <button pSidebarMenuButton (click)="navigateTo('profile')">
-                                        <!-- <svg data-p-icon="users"></svg> -->
-                                        <span class="ml-2 text-lg">Profile</span>
+                                    <button pSidebarMenuButton [class.active-button]="router.url === '/profile'"
+                                        (click)="navigateTo('/profile')">
+                                        <svg data-p-icon="user" [size]="30"></svg>
+                                        <span>Profile</span>
                                     </button>
                                 </p-sidebar-menu-item>
 
@@ -58,9 +61,9 @@
     </p-sidebar>
     <p-sidebar-main>
         <div class="flex">
-            <!-- @if(){ -->
+            @if(router.url !== '/'){
             <p-breadcrumb [model]="memberStore.breadcrumbs()" [home]="home" />
-            <!-- } -->
+            }
 
         </div>
         <router-outlet />

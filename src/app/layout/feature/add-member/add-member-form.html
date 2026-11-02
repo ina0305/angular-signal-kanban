@@ -1,19 +1,44 @@
-<div class="w-[300px] border border-solid  border-zinc-200 rounded-md p-4">
+<div class="border border-solid  border-zinc-200 rounded-md p-4 mx-8">
     <div class="pb-4 text-lg">Add New Member</div>
-    <div class="mb-4">
-        <p>Name:</p>
-        <input pInputText [invalid]="!name" type="text" class="w-full" [(ngModel)]="name" placeholder="Name" />
-    </div>
-    <div class="mb-4">
-        <p>Email:</p>
-        <input pInputText type="email" class="w-full" [(ngModel)]="email" placeholder="Email Address" />
-    </div>
+    <div [formGroup]="addForm" class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8">
+        <div class="mb-4">
+            <p>Name:</p>
+            <input pInputText type="text" class="w-full" formControlName="name" placeholder="Name"
+                [class.!border-red-500]="addForm.get('name')?.invalid && addForm.get('name')?.touched" />
+            <!-- 💡 顯示錯誤訊息：當 name 不合法且被碰過時才顯示 -->
+            @if (addForm.get('name')?.invalid && addForm.get('name')?.touched) {
+            <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+                <i class="pi pi-exclamation-circle"></i>
+                <!-- 這裡可以更細緻地判斷是什麼錯誤 -->
+                @if (addForm.get('name')?.hasError('required')) { 姓名為必填項目 }
+                @if (addForm.get('name')?.hasError('minlength')) { 姓名長度至少需要 2 個字 }
+            </span>
+            }
+        </div>
+        <div class="mb-4">
+            <p>Email:</p>
+            <input pInputText type="email" class="w-full" formControlName="email" placeholder="Email Address"
+                [class.!border-red-500]="addForm.get('email')?.invalid && addForm.get('email')?.touched" />
+            <!-- 💡 顯示錯誤訊息：當 email 不合法且被碰過時才顯示 -->
+            @if (addForm.get('email')?.invalid && addForm.get('email')?.touched) {
+            <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+                <i class="pi pi-exclamation-circle"></i>
+                <!-- 這裡可以更細緻地判斷是什麼錯誤 -->
+                @if (addForm.get('email')?.hasError('required')) { Email為必填項目 }
+                @if (addForm.get('email')?.hasError('email')) { Email格式錯誤 }
+            </span>
+            }
+        </div>
 
-    <div class="mb-4">
-        <p>Role:</p>
-        <p-select [options]="roleOptions" class="w-full" [(ngModel)]="role" optionLabel="label" optionValue="value"
-            placeholder="Select Role" class="w-full" />
+        <div class="mb-4">
+            <p>Role:</p>
+            <p-select [options]="roleOptions" class="w-full" formControlName="role" optionLabel="label"
+                optionValue="value" placeholder="Select Role" />
+        </div>
     </div>
-    <button pButton [disabled]="name()==='' && email()===''" class=" w-full" (click)="onSubmit()" type="submit">+ Add
-        Member</button>
+    <div class="flex justify-end">
+        <button pButton [disabled]="addForm.invalid" (click)="onSubmit()" type="submit">+
+            Add Member
+        </button>
+    </div>
 </div>

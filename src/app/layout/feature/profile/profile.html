@@ -1,16 +1,98 @@
-<p-card class="m-10">
-    <div class="flex flex-col items-center">
-        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" size="large"
-            shape="circle" class="mb-4" />
-        <p>Alex Mercer</p>
-        <p>Senior UX Designer</p>
-        <div class="flex flex-row">
-            <p>Location: San Francisco, CA</p>
-            <p>Email: website.com</p>
-        </div>
-        <p>"Passionate about creating clean, accessible, and │
-            │ user-centric digital experiences." </p>
+<div class="p-6 bg-slate-50 min-h-screen">
+
+    <!-- 標題區 -->
+    <div class="mb-6">
+        <h1 class="text-2xl font-bold text-slate-800">帳號資訊與設定 ⚙️</h1>
+        <p class="text-sm text-slate-500 mt-1">管理您的個人資料、安全憑證與系統管理權限。</p>
     </div>
-    <p-card></p-card>
-    <p-card></p-card>
-</p-card>
+
+    <!-- 響應式雙欄佈局 -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- 💡 左側欄：個人微章與簡要統計 (佔 1 欄) -->
+        <div class="flex flex-col gap-6">
+            <p-card class="shadow-sm text-center">
+                <div class="flex flex-col items-center p-4">
+                    <!-- 質感大頭貼圈圈 -->
+
+                    <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                        class="shadow-md mb-4 !bg-purple-100" size="xlarge" shape="circle" />
+
+                    <h2 class="text-xl font-bold text-slate-700">{{ store.adminInfo().name }}</h2>
+                    <p class="text-xs text-slate-400 mt-1 mb-4">{{ store.adminInfo().email }}</p>
+
+                    <!-- 權限標籤 -->
+                    <p-tag severity="info" [rounded]="true" value="最高權限管理員" />
+
+                </div>
+
+                <!-- 跨組件聯動統計 (核心精緻點！) -->
+                <div class="border-t border-slate-100 mt-4 pt-4 grid grid-cols-2 text-center text-xs">
+                    <div class="border-r border-slate-100">
+                        <span class="text-slate-400 block mb-1">已管理會員</span>
+                        <span class="text-xl font-extrabold text-blue-600">{{ store.items().length }} 人</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block mb-1">系統安全等級</span>
+                        <span class="text-xl font-extrabold text-emerald-500">高 (2FA)</span>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+
+        <!-- 💡 右側欄：詳細設定表單 (佔 2 欄) -->
+        <div class="lg:col-span-2 flex flex-col gap-6">
+
+            <!-- 卡片 A：基本資料 -->
+            <p-card header="基本帳務資料" subheader="這些資訊會同步顯示於系統的操作日誌中。" class="shadow-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-xs font-bold text-slate-500">使用者真實姓名</label>
+                        <input pInputText type="text" [value]="store.adminInfo().name" [disabled]="true"
+                            class="w-full !bg-slate-50" />
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-xs font-bold text-slate-500">所屬部門組織</label>
+                        <input pInputText type="text" [value]="store.adminInfo().dept" [disabled]="true"
+                            class="w-full !bg-slate-50" />
+                    </div>
+                    <div class="flex flex-col gap-1.5 md:col-span-2">
+                        <label class="text-xs font-bold text-slate-500">主要聯絡信箱 (Email)</label>
+                        <input pInputText type="text" [value]="store.adminInfo().email" [disabled]="true"
+                            class="w-full !bg-slate-50" />
+                    </div>
+                </div>
+            </p-card>
+
+            <!-- 卡片 B：帳號安全防護 -->
+            <p-card header="安全性與登入資訊" class="shadow-sm">
+                <div class="flex flex-col gap-4 mt-2">
+                    <div class="flex justify-between items-center text-sm border-b border-slate-50 pb-3">
+                        <div>
+                            <span class="font-semibold text-slate-700 block">最近一次登入活動</span>
+                            <span class="text-xs text-slate-400">來自當前的瀏覽器工作階段</span>
+                        </div>
+                        <span class="text-xs text-slate-600 bg-slate-100 px-2.5 py-1 rounded font-mono">{{
+                            store.adminInfo().lastLogin }}</span>
+                    </div>
+
+                    <div class="flex justify-between items-center text-sm pt-1">
+                        <div>
+                            <span class="font-semibold text-slate-700 block">帳號密碼控制</span>
+                            <span class="text-xs text-slate-400">定期更改密碼可以提高控制台的安全性</span>
+                        </div>
+                        <p-button label="重設密碼" severity="secondary" [outlined]="true" size="small" icon="pi pi-key" />
+                    </div>
+                </div>
+
+                <!-- 底部危險區捷徑 -->
+                <div class="flex justify-end gap-3 border-t border-slate-100 mt-6 pt-4">
+                    <p-button label="切換帳號" severity="secondary" [text]="true" size="small" />
+                    <p-button label="安全登出系統" severity="danger" size="small" icon="pi pi-sign-out" />
+                </div>
+            </p-card>
+
+        </div>
+
+    </div>
+</div>

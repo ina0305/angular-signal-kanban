@@ -1,95 +1,92 @@
 {
-  "currentUser": {
-    "userId": "usr_99823",
-    "name": "Olivia R.",
-    "avatarUrl": "https://example.com",
-    "totalBalance": 120.00,
-    "currency": "USD",
-    "status": "Owed to You"
+  "user_id": "usr_2026_9527",
+  "basic_info": {
+    "english_name": "Alex Mercer",
+    "avatar_url": "https://unsplash.com",
+    "email": "alex.mercer@designlab.io"
   },
-  "recentGroupTransactions": [
-    {
-      "transactionId": "tx_001",
-      "title": "Dinner with Team",
-      "category": "Dining",
-      "timestamp": "2026-10-28T07:59:00Z",
-      "timeAgo": "2h ago",
-      "totalAmount": 135.00,
-      "userShareAmount": -45.00,
-      "paidBy": "usr_002",
-      "involvedMembers": [
-        {"name": "Olivia R.", "avatar": "https://example.com"},
-        {"name": "Alex M.", "avatar": "https://example.com"},
-        {"name": "Sarah K.", "avatar": "https://example.com"}
-      ]
-    },
-    {
-      "transactionId": "tx_002",
-      "title": "Electricity Bill",
-      "category": "Utilities",
-      "timestamp": "2026-10-28T06:59:00Z",
-      "timeAgo": "3h ago",
-      "totalAmount": 240.00,
-      "userShareAmount": -80.00,
-      "paidBy": "usr_003",
-      "involvedMembers": [
-        {"name": "Olivia R.", "avatar": "https://example.com"},
-        {"name": "Alex M.", "avatar": "https://example.com"},
-        {"name": "Sarah K.", "avatar": "https://example.com"}
-      ]
-    },
-    {
-      "transactionId": "tx_003",
-      "title": "Netflix Subscription",
-      "category": "Entertainment",
-      "timestamp": "2026-10-28T07:59:00Z",
-      "timeAgo": "2h ago",
-      "totalAmount": 15.00,
-      "userShareAmount": -15.00,
-      "paidBy": "usr_99823",
-      "involvedMembers": [
-        {"name": "Olivia R.", "avatar": "https://example.com"}
-      ]
-    },
-    {
-      "transactionId": "tx_004",
-      "title": "Groceries",
-      "category": "Groceries",
-      "timestamp": "2026-10-28T04:59:00Z",
-      "timeAgo": "5h ago",
-      "totalAmount": 220.00,
-      "userShareAmount": -110.00,
-      "paidBy": "usr_002",
-      "involvedMembers": [
-        {"name": "Olivia R.", "avatar": "https://example.com"},
-        {"name": "Alex M.", "avatar": "https://example.com"}
-      ]
-    },
-    {
-      "transactionId": "tx_005",
-      "title": "Uber to Airport",
-      "category": "Travel",
-      "timestamp": "2026-10-28T07:59:00Z",
-      "timeAgo": "2h ago",
-      "totalAmount": 105.00,
-      "userShareAmount": -35.00,
-      "paidBy": "usr_004",
-      "involvedMembers": [
-        {"name": "Olivia R.", "avatar": "https://example.com"},
-        {"name": "Sarah K.", "avatar": "https://example.com"},
-        {"name": "Tom H.", "avatar": "https://example.com"}
-      ]
-    }
-  ],
-  "spendingCategories": {
-    "totalSpent": 285.00,
-    "currency": "USD",
-    "breakdown": [
-      { "category": "Food", "percentage": 35, "amount": 99.75 },
-      { "category": "Utilities", "percentage": 25, "amount": 71.25 },
-      { "category": "Groceries", "percentage": 20, "amount": 57.00 },
-      { "category": "Transport", "percentage": 12, "amount": 34.20 },
-      { "category": "Entertainment", "percentage": 8, "amount": 22.80 }
+  "login_credentials": {
+    "username": "alex_mercer_dev",
+    "password_last_changed": "2026-08-15T08:34:12Z",
+    "password_strength": "Strong",
+    "associated_oauth_providers": [
+      {
+        "provider": "Google",
+        "is_connected": true,
+        "connected_at": "2025-01-10T14:22:00Z",
+        "email": "alex.mercer.workspace@gmail.com"
+      },
+      {
+        "provider": "GitHub",
+        "is_connected": true,
+        "connected_at": "2025-03-22T09:11:45Z",
+        "email": "alexmercer-dev"
+      },
+      {
+        "provider": "Apple",
+        "is_connected": false,
+        "connected_at": null,
+        "email": null
+      }
     ]
-  }
+  },
+  "security_status": {
+    "two_factor_authentication": {
+      "is_enabled": true,
+      "method": "Authenticator App (TOTP)",
+      "backup_codes_remaining": 5,
+      "phone_sms_verified": true,
+      "masked_phone_number": "+1 (•••) •••-5678"
+    },
+    "active_sessions_count": 3,
+    "api_keys": [
+      {
+        "name": "Production_NextJS_App",
+        "token_preview": "sk_live_...4x9e",
+        "created_at": "2026-05-12",
+        "is_active": true
+      },
+      {
+        "name": "Figma_Plugin_Test",
+        "token_preview": "sk_test_...8b2z",
+        "created_at": "2026-10-01",
+        "is_active": false
+      }
+    ]
+  },
+  "login_history": [
+    {
+      "id": "log_01",
+      "timestamp": "2026-10-30T15:20:00Z",
+      "ip_address": "218.161.45.192",
+      "location": "Taipei, Taiwan",
+      "device": "MacBook Pro",
+      "browser": "Chrome 131.0",
+      "os": "macOS Sequoia",
+      "is_current_session": true,
+      "status": "Success"
+    },
+    {
+      "id": "log_02",
+      "timestamp": "2026-10-28T09:14:22Z",
+      "ip_address": "172.56.21.8",
+      "location": "San Francisco, CA, USA",
+      "device": "iPhone 16 Pro",
+      "browser": "Safari Mobile",
+      "os": "iOS 18",
+      "is_current_session": false,
+      "status": "Success"
+    },
+    {
+      "id": "log_03",
+      "timestamp": "2026-10-25T23:45:11Z",
+      "ip_address": "45.123.89.12",
+      "location": "Frankfurt, Germany",
+      "device": "Unknown Device",
+      "browser": "Firefox 130.0",
+      "os": "Linux",
+      "is_current_session": false,
+      "status": "Blocked (Suspicious Activity)"
+    }
+  ]
 }
