@@ -3,7 +3,7 @@
     border-right: 1px solid var(--color-zinc-50);
 }
 
-/* 側邊欄選單按鈕：平常未選中時的優雅灰色 */
+/* 側邊欄選單按鈕：平常未選中時的顏色 */
 .p-sidebar-group-content .p-sidebar-menu-item button[pSidebarMenuButton] {
     padding: 16px;
     color: var(--color-zinc-500);
@@ -14,7 +14,7 @@
     }
 }
 
-/* 完美亮燈：當前分頁被選中 (isActive) 時 Active 樣式 */
+/* 當前分頁被選中 (isActive) 時 Active 樣式 */
 .p-sidebar-menu-item button[pSidebarMenuButton].active-button {
     background-color: var(--color-blue-50);
     color: var(--color-sky-600) !important;
@@ -27,7 +27,6 @@
     color: var(--color-blue-400);
 }
 
-/* 7. 主內容區（右側）：給予舒適的滿版間距 padding 放大 */
 .p-sidebar-main {
     padding: 16px;
 }

@@ -4,11 +4,9 @@
             <label>Name</label>
             <input pInputText type="text" class="w-full" formControlName="name" placeholder="Name"
                 [class.!border-red-500]="addForm.get('name')?.invalid && addForm.get('name')?.touched" />
-            <!-- 💡 顯示錯誤訊息：當 name 不合法且被碰過時才顯示 -->
             @if (addForm.get('name')?.invalid && addForm.get('name')?.touched) {
             <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
                 <i class="pi pi-exclamation-circle"></i>
-                <!-- 這裡可以更細緻地判斷是什麼錯誤 -->
                 @if (addForm.get('name')?.hasError('required')) { 姓名為必填項目 }
                 @if (addForm.get('name')?.hasError('minlength')) { 姓名長度至少需要 2 個字 }
             </span>
@@ -18,11 +16,9 @@
             <label>Email:</label>
             <input pInputText type="email" class="w-full" formControlName="email" placeholder="Email"
                 [class.!border-red-500]="addForm.get('email')?.invalid && addForm.get('email')?.touched" />
-            <!-- 💡 顯示錯誤訊息：當 email 不合法且被碰過時才顯示 -->
             @if (addForm.get('email')?.invalid && addForm.get('email')?.touched) {
             <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
                 <i class="pi pi-exclamation-circle"></i>
-                <!-- 這裡可以更細緻地判斷是什麼錯誤 -->
                 @if (addForm.get('email')?.hasError('required')) { Email為必填項目 }
                 @if (addForm.get('email')?.hasError('email')) { Email格式錯誤 }
             </span>

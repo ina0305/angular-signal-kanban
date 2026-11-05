@@ -1,21 +1,9 @@
-interface NavItem {
-    label: string;
-    icon: string;
-    route: string;
-}
-
-interface NavGroup {
-    label: string;
-    route?: string;
-    expanded: boolean;
-    items?: NavItem[];
-}
+import { NavGroup } from "../module/route.module";
 
 export const NAV_GROUPS: NavGroup[] = [
     {
         label: 'Dashboard',
         route: '/',
-        expanded: true,
     },
     {
         label: 'Members',
@@ -41,6 +29,5 @@ export const NAV_GROUPS: NavGroup[] = [
     {
         label: 'Profile',
         route: '/profile',
-        expanded: true,
     }
 ];

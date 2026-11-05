@@ -1,5 +1,9 @@
 import { Component, inject } from '@angular/core';
+
+// Form
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+
+// PrimeNG
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { DatePickerModule } from 'primeng/datepicker';
@@ -34,23 +38,4 @@ export class CreateMemberComponent {
       birth: ['']
     })
   }
-
-  getErrorMessage(controlName: string): string {
-    const control = this.basicInfoForm.get(controlName);
-
-    if (control?.errors?.['required']) {
-      return '此欄位為必填';
-    }
-
-    if (control?.errors?.['email']) {
-      return 'Email 格式不正確';
-    }
-
-    if (control?.errors?.['pattern']) {
-      return '手機格式不正確';
-    }
-
-    return '';
-  }
-
 }
