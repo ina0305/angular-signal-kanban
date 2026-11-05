@@ -10,7 +10,7 @@ import { ButtonModule } from "primeng/button";
 import { MemberStore } from "../store/member.store";
 
 @Component({
-    templateUrl: './profile.html',
+    templateUrl: './profile.component.html',
     selector: 'profile',
     imports: [CardModule, AvatarModule, ButtonModule, TagModule]
 })

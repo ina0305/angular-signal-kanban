@@ -48,7 +48,4 @@ export class MainLayoutContainer {
     navigateTo(path: string) {
         this.router.navigate([path]);
     }
-
-
-
 }

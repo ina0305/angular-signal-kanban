@@ -20,7 +20,7 @@ import { MemberStore } from "../store/member.store";
     ButtonModule,
     ReactiveFormsModule
   ],
-  templateUrl: './add-member-form.html',
+  templateUrl: './add-member-form.component.html',
 })
 
 export class AddMemberFormComponent {
@@ -47,7 +47,6 @@ export class AddMemberFormComponent {
   }
 
   onSubmit() {
-
     if (this.addForm.invalid) return;
     const formData = this.addForm.value;
     this.memberStore.addMember(formData);

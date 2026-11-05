@@ -44,6 +44,14 @@
                                 </p-sidebar-menu-item>
 
                                 <p-sidebar-menu-item>
+                                    <button pSidebarMenuButton [class.active-button]="router.url === '/create'"
+                                        (click)="navigateTo('/create')">
+                                        <svg data-p-icon="plus" [size]="30"></svg>
+                                        <span>Create Member</span>
+                                    </button>
+                                </p-sidebar-menu-item>
+
+                                <p-sidebar-menu-item>
                                     <button pSidebarMenuButton [class.active-button]="router.url === '/profile'"
                                         (click)="navigateTo('/profile')">
                                         <svg data-p-icon="user" [size]="30"></svg>

@@ -2,7 +2,7 @@
     <div class="pb-4 text-lg">Add New Member</div>
     <div [formGroup]="addForm" class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8">
         <div class="mb-4">
-            <p>Name:</p>
+            <label>Name</label>
             <input pInputText type="text" class="w-full" formControlName="name" placeholder="Name"
                 [class.!border-red-500]="addForm.get('name')?.invalid && addForm.get('name')?.touched" />
             <!-- 💡 顯示錯誤訊息：當 name 不合法且被碰過時才顯示 -->
@@ -16,7 +16,7 @@
             }
         </div>
         <div class="mb-4">
-            <p>Email:</p>
+            <label>Email:</label>
             <input pInputText type="email" class="w-full" formControlName="email" placeholder="Email Address"
                 [class.!border-red-500]="addForm.get('email')?.invalid && addForm.get('email')?.touched" />
             <!-- 💡 顯示錯誤訊息：當 email 不合法且被碰過時才顯示 -->
@@ -31,7 +31,7 @@
         </div>
 
         <div class="mb-4">
-            <p>Role:</p>
+            <label>Role:</label>
             <p-select [options]="roleOptions" class="w-full" formControlName="role" optionLabel="label"
                 optionValue="value" placeholder="Select Role" />
         </div>

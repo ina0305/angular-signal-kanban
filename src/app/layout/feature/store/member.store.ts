@@ -83,9 +83,6 @@ export const MemberStore = signalStore(
             });
         }
     }),
-    // withComputed((store,) => {
-    //     totalMembers: store.items.length
-    // }),
     withMethods((store, http = inject(HttpClient)) => ({
         addMember(newMember: Omit<Member, 'id'>) {
             const memberWithId: Member = {

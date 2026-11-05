@@ -1,0 +1,52 @@
+<div class="grid grid-cols-1 gap-6 px-10">
+    <p-card header="基本資料" class="shadow-sm">
+        <div [formGroup]="basicInfoForm" class="grid grid-cols-2 gap-6">
+            <div class="w-full">
+                <label for="firstName">First Name</label>
+                <input id="firstName" pInputText class="w-full" />
+            </div>
+            <div class="w-full">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" pInputText class="w-full" />
+            </div>
+            <div class="w-full">
+                <label for="email">Email</label>
+                <input id="email" pInputText class="w-full" />
+            </div>
+            <div class="w-full">
+                <label for="phone">Phone</label>
+                <input id="phone" pInputText class="w-full" />
+            </div>
+            <div class="w-full">
+                <label>Birth</label>
+                <input pInputText class="w-full" />
+            </div>
+            <div class="w-full">
+                <label for="gender">Gender</label>
+                <div class="grid grid-cols-3 w-full h-[42px]">
+                    <div class="flex items-center gap-3">
+                        <p-radiobutton formControlName="gender" inputId="male" name="gender"
+                            value="male"></p-radiobutton>
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <p-radiobutton formControlName="gender" inputId="female" name="gender"
+                            value="female"></p-radiobutton>
+                        <label for="female">Female</label>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <p-radiobutton formControlName="gender" inputId="other" name="gender"
+                            value="other"></p-radiobutton>
+                        <label for="other">Other</label>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="w-full">
+                <label></label>
+                <input pInputText class="w-full" />
+            </div> -->
+        </div>
+    </p-card>
+    <p-card header="帳號與權限" class="shadow-sm"></p-card>
+    <p-card header="其他設定" class="shadow-sm"></p-card>
+</div>
