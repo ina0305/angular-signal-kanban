@@ -7,9 +7,11 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { InputTextModule } from "primeng/inputtext";
 import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
+import { CardModule } from "primeng/card";
 
 // Store
 import { MemberStore } from "../store/member.store";
+
 
 @Component({
   selector: 'add-member-form',
@@ -18,7 +20,8 @@ import { MemberStore } from "../store/member.store";
     InputTextModule,
     SelectModule,
     ButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CardModule
   ],
   templateUrl: './add-member-form.component.html',
 })

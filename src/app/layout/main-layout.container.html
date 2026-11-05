@@ -15,53 +15,34 @@
             <p-sidebar-panel>
                 <p-sidebar-header></p-sidebar-header>
                 <p-sidebar-content class="border-r border-zinc-200">
+                    @for (group of navGroup; track group.label) {
+                    @if (group.route) {
+                    <p-sidebar-menu-item class="!text-lg !text-zinc-500">
+                        <button pSidebarMenuButton [class.active-button]="router.url === group.route"
+                            (click)="navigateTo(group.route)" class="!p-4">
+                            <span>{{ group.label }}</span>
+                        </button>
+                    </p-sidebar-menu-item>
+                    } @else {
                     <p-sidebar-group>
+                        <p-sidebar-group-label class="!p-4 !text-lg !text-zinc-500">
+                            {{ group.label }}
+                        </p-sidebar-group-label>
                         <p-sidebar-group-content>
                             <p-sidebar-menu>
-
+                                @for (item of group.items; track item.route) {
                                 <p-sidebar-menu-item>
-                                    <button pSidebarMenuButton [class.active-button]="router.url==='/'"
-                                        (click)="navigateTo('/')">
-                                        <svg data-p-icon="home" [size]="30"></svg>
-                                        <span>Home</span>
+                                    <button pSidebarMenuButton [class.active-button]="router.url === item.route"
+                                        (click)="navigateTo(item.route)">
+                                        <span>{{ item.label }}</span>
                                     </button>
                                 </p-sidebar-menu-item>
-
-                                <p-sidebar-menu-item>
-                                    <button pSidebarMenuButton [class.active-button]="router.url === '/add-member'"
-                                        (click)="navigateTo('/add-member')">
-                                        <svg data-p-icon="plus" [size]="30"></svg>
-                                        <span>Add Member</span>
-                                    </button>
-                                </p-sidebar-menu-item>
-
-                                <p-sidebar-menu-item>
-                                    <button pSidebarMenuButton [class.active-button]="router.url === '/member-list'"
-                                        (click)="navigateTo('/member-list')">
-                                        <svg data-p-icon="users" [size]="30"></svg>
-                                        <span class="ml-2 text-lg">Member List</span>
-                                    </button>
-                                </p-sidebar-menu-item>
-
-                                <p-sidebar-menu-item>
-                                    <button pSidebarMenuButton [class.active-button]="router.url === '/create'"
-                                        (click)="navigateTo('/create')">
-                                        <svg data-p-icon="plus" [size]="30"></svg>
-                                        <span>Create Member</span>
-                                    </button>
-                                </p-sidebar-menu-item>
-
-                                <p-sidebar-menu-item>
-                                    <button pSidebarMenuButton [class.active-button]="router.url === '/profile'"
-                                        (click)="navigateTo('/profile')">
-                                        <svg data-p-icon="user" [size]="30"></svg>
-                                        <span>Profile</span>
-                                    </button>
-                                </p-sidebar-menu-item>
-
+                                }
                             </p-sidebar-menu>
                         </p-sidebar-group-content>
                     </p-sidebar-group>
+                    }
+                    }
                 </p-sidebar-content>
                 <p-sidebar-footer>...</p-sidebar-footer>
             </p-sidebar-panel>
@@ -78,9 +59,3 @@
     </p-sidebar-main>
 
 </p-sidebar-layout>
-<!-- <div class="p-6">
-    <div class="flex h-full justify-between">
-        <add-member-form class="h-full" (memberAdded)="addMember($event)"></add-member-form>
-        <member-list [members]="members()" (memberDeleted)="deleteMember($event)"></member-list>
-    </div>
-</div> -->

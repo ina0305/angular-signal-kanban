@@ -11,25 +11,31 @@ export const routes: Routes = [
         data: { breadcrumb: [] }
       },
       {
-        path: 'member-list',
-        loadComponent: () => import('./feature/member-list/member-list.component').then((m) => m.MemberListComponent),
-        data: { breadcrumb: [{ label: '人員清單' }] }
-      },
-      {
-        path: 'add-member',
-        loadComponent: () => import('./feature/add-member/add-member-form.component').then((m) => m.AddMemberFormComponent),
-        data: { breadcrumb: [{ label: '增加人員表格' }] }
+        path: 'members',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./feature/member-list/member-list.component').then((m) => m.MemberListComponent),
+            data: { breadcrumb: [{ label: '會員管理' }, { label: '人員清單' }] }
+          },
+          {
+            path: 'add',
+            loadComponent: () => import('./feature/add-member/add-member-form.component').then((m) => m.AddMemberFormComponent),
+            data: { breadcrumb: [{ label: '會員管理' }, { label: '增加人員表格' }] }
+          },
+          {
+            path: 'create',
+            loadComponent: () => import('./feature/create-member/create-member.component').then((m) => m.CreateMemberComponent),
+            data: { breadcrumb: [{ label: '會員管理' }, { label: '建立會員' }] }
+          }
+        ]
       },
       {
         path: 'profile',
         loadComponent: () => import('./feature/profile/profile.component').then((m) => m.ProfileComponent),
         data: { breadcrumb: [{ label: '帳號管理' }] }
       },
-      {
-        path: 'create',
-        loadComponent: () => import('./feature/create-member/create-member.component').then((m) => m.CreateMemberComponent),
-        data: { breadcrumb: [{ label: '建立會員' }] }
-      }
     ]
   },
 ];
+

@@ -2,27 +2,57 @@
     <p-card header="基本資料" class="shadow-sm">
         <div [formGroup]="basicInfoForm" class="grid grid-cols-2 gap-6">
             <div class="w-full">
-                <label for="firstName">First Name</label>
-                <input id="firstName" pInputText class="w-full" />
+                <label for="firstName" class="text-sm font-bold block mb-2">First Name</label>
+                <input id="firstName" formControlName="firstName" pInputText class="w-full"
+                    [class.!border-red-500]="basicInfoForm.get('firstName')?.invalid && basicInfoForm.get('firstName')?.touched" />
+                @if(basicInfoForm.get('firstName')?.invalid && basicInfoForm.get('firstName')?.touched){
+                <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+                    <i class="pi pi-exclamation-circle"></i>
+                    firstName 為必填
+                </span>
+                }
             </div>
             <div class="w-full">
-                <label for="lastName">Last Name</label>
-                <input id="lastName" pInputText class="w-full" />
+                <label for="lastName" class="text-sm font-bold block mb-2">Last Name</label>
+                <input id="lastName" formControlName="lastName" pInputText class="w-full"
+                    [class.!border-red-500]="basicInfoForm.get('lastName')?.invalid && basicInfoForm.get('lastName')?.touched" />
+                @if(basicInfoForm.get('lastName')?.invalid && basicInfoForm.get('lastName')?.touched){
+                <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+                    <i class="pi pi-exclamation-circle"></i>
+                    lastName 為必填
+                </span>
+                }
             </div>
             <div class="w-full">
-                <label for="email">Email</label>
-                <input id="email" pInputText class="w-full" />
+                <label for="email" class="text-sm font-bold block mb-2">Email</label>
+                <input id="email" formControlName="email" pInputText class="w-full"
+                    [class.!border-red-500]="basicInfoForm.get('email')?.invalid && basicInfoForm.get('email')?.touched" />
+                @if(basicInfoForm.get('email')?.invalid && basicInfoForm.get('email')?.touched){
+                <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+                    <i class="pi pi-exclamation-circle"></i>
+                    @if(basicInfoForm.get('email')?.hasError('required')) {Email 為必填}
+                    @if(basicInfoForm.get('email')?.hasError('email')) {Email格式錯誤}
+                </span>
+                }
             </div>
             <div class="w-full">
-                <label for="phone">Phone</label>
-                <input id="phone" pInputText class="w-full" />
+                <label for="phone" class="text-sm font-bold block mb-2">Phone</label>
+                <input id="phone" formControlName="phone" pInputText class="w-full"
+                    [class.!border-red-500]="basicInfoForm.get('phone')?.invalid && basicInfoForm.get('phone')?.touched" />
+                @if(basicInfoForm.get('phone')?.invalid && basicInfoForm.get('phone')?.touched){
+                <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+                    <i class="pi pi-exclamation-circle"></i>
+                    手機格式不正確
+                </span>
+                }
             </div>
             <div class="w-full">
-                <label>Birth</label>
-                <input pInputText class="w-full" />
+                <label for="birth" class="text-sm font-bold block mb-2">Birth</label>
+                <p-datepicker inputId="birth" formControlName="birth" [showIcon]="true" [showOnFocus]="false" fluid
+                    dateFormat="yy-mm-dd" />
             </div>
             <div class="w-full">
-                <label for="gender">Gender</label>
+                <label for="gender" class="text-sm font-bold block mb-2">Gender</label>
                 <div class="grid grid-cols-3 w-full h-[42px]">
                     <div class="flex items-center gap-3">
                         <p-radiobutton formControlName="gender" inputId="male" name="gender"
@@ -47,6 +77,12 @@
             </div> -->
         </div>
     </p-card>
-    <p-card header="帳號與權限" class="shadow-sm"></p-card>
+    <p-card header="帳號資訊" class="shadow-sm">
+        
+    </p-card>
     <p-card header="其他設定" class="shadow-sm"></p-card>
+    <div class="flex justify-end gap-3">
+        <p-button variant="text" severity="secondary">取消</p-button>
+        <p-button severity="info">建立會員</p-button>
+    </div>
 </div>

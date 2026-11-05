@@ -4,13 +4,13 @@
 }
 
 /* 側邊欄選單按鈕：平常未選中時的優雅灰色 */
-.p-sidebar-menu-item button[pSidebarMenuButton] {
+.p-sidebar-group-content .p-sidebar-menu-item button[pSidebarMenuButton] {
     padding: 16px;
     color: var(--color-zinc-500);
 
     span {
         margin-left: 12px;
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 

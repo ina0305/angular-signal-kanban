@@ -1,7 +1,6 @@
-<div class="border border-solid  border-zinc-200 rounded-md p-4 mx-8">
-    <div class="pb-4 text-lg">Add New Member</div>
-    <div [formGroup]="addForm" class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8">
-        <div class="mb-4">
+<p-card class="mx-8 shadow-sm" header="Add New Member">
+    <div [formGroup]="addForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="my-4">
             <label>Name</label>
             <input pInputText type="text" class="w-full" formControlName="name" placeholder="Name"
                 [class.!border-red-500]="addForm.get('name')?.invalid && addForm.get('name')?.touched" />
@@ -15,9 +14,9 @@
             </span>
             }
         </div>
-        <div class="mb-4">
+        <div class="my-4">
             <label>Email:</label>
-            <input pInputText type="email" class="w-full" formControlName="email" placeholder="Email Address"
+            <input pInputText type="email" class="w-full" formControlName="email" placeholder="Email"
                 [class.!border-red-500]="addForm.get('email')?.invalid && addForm.get('email')?.touched" />
             <!-- 💡 顯示錯誤訊息：當 email 不合法且被碰過時才顯示 -->
             @if (addForm.get('email')?.invalid && addForm.get('email')?.touched) {
@@ -36,9 +35,10 @@
                 optionValue="value" placeholder="Select Role" />
         </div>
     </div>
+
     <div class="flex justify-end">
         <button pButton [disabled]="addForm.invalid" (click)="onSubmit()" type="submit">+
             Add Member
         </button>
     </div>
-</div>
+</p-card>
