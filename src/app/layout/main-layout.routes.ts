@@ -15,18 +15,23 @@ export const routes: Routes = [
         children: [
           {
             path: '',
-            loadComponent: () => import('./feature/member-list/member-list.component').then((m) => m.MemberListComponent),
+            loadComponent: () => import('./feature/members/member-list/member-list.component').then((m) => m.MemberListComponent),
             data: { breadcrumb: [{ label: '會員管理' }, { label: '人員清單' }] }
           },
           {
             path: 'add',
-            loadComponent: () => import('./feature/add-member/add-member-form.component').then((m) => m.AddMemberFormComponent),
+            loadComponent: () => import('./feature/members/add-member/add-member-form.component').then((m) => m.AddMemberFormComponent),
             data: { breadcrumb: [{ label: '會員管理' }, { label: '增加人員表格' }] }
           },
           {
             path: 'create',
-            loadComponent: () => import('./feature/create-member/create-member.component').then((m) => m.CreateMemberComponent),
+            loadComponent: () => import('./feature/members/create-member/create-member.component').then((m) => m.CreateMemberComponent),
             data: { breadcrumb: [{ label: '會員管理' }, { label: '建立會員' }] }
+          },
+          {
+            path: ':id',
+            loadComponent: () => import('./feature/members/member-detail/member-detail.component').then((m) => m.MemberDetailComponent),
+            data: { breadcrumb: [{ label: '會員管理' }, { label: '會員資料' }] }
           }
         ]
       },

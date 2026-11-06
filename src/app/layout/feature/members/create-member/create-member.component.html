@@ -1,0 +1,124 @@
+<!-- <p-toast /> -->
+<div class="grid grid-cols-1 gap-6 px-10">
+    <p-card header="基本資料" class="shadow-sm">
+        <div [formGroup]="createInfoForm" class="grid grid-cols-2 gap-6">
+            <div>
+                <label for="firstName" class="text-sm font-bold block mb-2">
+                    <i class="pi pi-asterisk text-red-500"></i>
+                    First Name
+                </label>
+                <input id="firstName" formControlName="firstName" pInputText class="w-full"
+                    [class.!border-red-500]="createInfoForm.get('firstName')?.invalid && createInfoForm.get('firstName')?.touched" />
+                @if(createInfoForm.get('firstName')?.invalid && createInfoForm.get('firstName')?.touched){
+                <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+                    <i class="pi pi-exclamation-circle"></i>
+                    FirstName 為必填
+                </span>
+                }
+            </div>
+            <div>
+                <label for="lastName" class="text-sm font-bold block mb-2">
+                    <i class="pi pi-asterisk text-red-500"></i>
+                    Last Name</label>
+                <input id="lastName" formControlName="lastName" pInputText class="w-full"
+                    [class.!border-red-500]="createInfoForm.get('lastName')?.invalid && createInfoForm.get('lastName')?.touched" />
+                @if(createInfoForm.get('lastName')?.invalid && createInfoForm.get('lastName')?.touched){
+                <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+                    <i class="pi pi-exclamation-circle"></i>
+                    lastName 為必填
+                </span>
+                }
+            </div>
+            <div>
+                <label for="email" class="text-sm font-bold block mb-2">
+                    <i class="pi pi-asterisk text-red-500"></i>
+                    Email</label>
+                <input id="email" formControlName="email" pInputText class="w-full"
+                    [class.!border-red-500]="createInfoForm.get('email')?.invalid && createInfoForm.get('email')?.touched" />
+                @if(createInfoForm.get('email')?.invalid && createInfoForm.get('email')?.touched){
+                <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+                    <i class="pi pi-exclamation-circle"></i>
+                    @if(createInfoForm.get('email')?.hasError('required')) {Email 為必填}
+                    @if(createInfoForm.get('email')?.hasError('email')) {Email格式錯誤}
+                </span>
+                }
+            </div>
+            <div>
+                <label for="phone" class="text-sm font-bold block mb-2">Phone</label>
+                <input id="phone" formControlName="phone" pInputText class="w-full"
+                    [class.!border-red-500]="createInfoForm.get('phone')?.invalid && createInfoForm.get('phone')?.touched" />
+                @if(createInfoForm.get('phone')?.invalid && createInfoForm.get('phone')?.touched){
+                <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+                    <i class="pi pi-exclamation-circle"></i>
+                    手機格式不正確
+                </span>
+                }
+            </div>
+            <div>
+                <label for="birth" class="text-sm font-bold block mb-2">Birth</label>
+                <p-datepicker inputId="birth" formControlName="birth" [showIcon]="true" [showOnFocus]="false" fluid
+                    dateFormat="yy-mm-dd" />
+            </div>
+            <div class="w-full">
+                <label for="gender" class="text-sm font-bold block mb-2">Gender</label>
+                <div class="grid grid-cols-3 w-full h-[42px]">
+                    <div class="flex items-center gap-3">
+                        <p-radiobutton formControlName="gender" inputId="male" name="gender"
+                            value="male"></p-radiobutton>
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <p-radiobutton formControlName="gender" inputId="female" name="gender"
+                            value="female"></p-radiobutton>
+                        <label for="female">Female</label>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <p-radiobutton formControlName="gender" inputId="other" name="gender"
+                            value="other"></p-radiobutton>
+                        <label for="other">Other</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-card>
+    <p-card header="帳號資訊" class="shadow-sm">
+        <div [formGroup]="createInfoForm" class="grid grid-cols-2 gap-6">
+            <div>
+                <label for="role" class="text-sm font-bold block mb-2">Role</label>
+                <p-select id="role" [options]="roleOptions" formControlName="role" class="w-full" />
+            </div>
+            <div>
+                <label for="status" class="text-sm font-bold block mb-2">Status</label>
+                <p-select id="status" [options]="statusOptions" formControlName="status" class="w-full" />
+            </div>
+        </div>
+    </p-card>
+    <p-card header="其他設定" class="shadow-sm">
+        <div [formGroup]="createInfoForm" class="grid grid-cols-2 gap-6">
+            <div>
+                <label for="language" class="text-sm font-bold block mb-2">Language</label>
+                <p-select id="language" [options]="languageOptions" formControlName="language" class="w-full" />
+            </div>
+            <div>
+                <label for="timeZone" class="text-sm font-bold block mb-2">TimeZone</label>
+                <p-select id="timeZone" [options]="timeZoneOptions" formControlName="timeZone" class="w-full" />
+            </div>
+            <div>
+                <label for="note" class="text-sm font-bold block mb-2">Note</label>
+                <textarea id="note" pTextarea rows="5" cols="30" formControlName="note" [autoResize]="true"
+                    class="w-full"></textarea>
+            </div>
+        </div>
+    </p-card>
+    <div class="flex justify-end gap-3">
+        <button pButton variant="text" severity="secondary" (click)="onCancel()">取消</button>
+        <button pButton [disabled]="createInfoForm.invalid || isSubmitting()" (click)="onSubmit()">
+            @if (isSubmitting()) {
+            <svg data-p-icon="spinner" class="animate-spin"></svg>
+            Loading...
+            } @else {
+            建立會員
+            }
+        </button>
+    </div>
+</div>

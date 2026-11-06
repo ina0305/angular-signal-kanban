@@ -1,4 +1,4 @@
-import { NavGroup } from "../module/route.module";
+import { NavGroup } from "../models/route.models";
 
 export const NAV_GROUPS: NavGroup[] = [
     {

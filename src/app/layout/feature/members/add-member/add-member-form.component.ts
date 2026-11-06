@@ -10,7 +10,7 @@ import { SelectModule } from 'primeng/select';
 import { CardModule } from "primeng/card";
 
 // Store
-import { MemberStore } from "../store/member.store";
+import { MemberStore } from "../../store/member.store";
 
 
 @Component({
