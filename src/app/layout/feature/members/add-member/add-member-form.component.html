@@ -1,40 +1,75 @@
 <p-card class="mx-8 shadow-sm" header="Add New Member">
-    <div [formGroup]="addForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="my-4">
-            <label>Name</label>
-            <input pInputText type="text" class="w-full" formControlName="name" placeholder="Name"
-                [class.!border-red-500]="addForm.get('name')?.invalid && addForm.get('name')?.touched" />
-            @if (addForm.get('name')?.invalid && addForm.get('name')?.touched) {
-            <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
-                <i class="pi pi-exclamation-circle"></i>
-                @if (addForm.get('name')?.hasError('required')) { 姓名為必填項目 }
-                @if (addForm.get('name')?.hasError('minlength')) { 姓名長度至少需要 2 個字 }
-            </span>
-            }
-        </div>
-        <div class="my-4">
-            <label>Email:</label>
-            <input pInputText type="email" class="w-full" formControlName="email" placeholder="Email"
-                [class.!border-red-500]="addForm.get('email')?.invalid && addForm.get('email')?.touched" />
-            @if (addForm.get('email')?.invalid && addForm.get('email')?.touched) {
-            <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
-                <i class="pi pi-exclamation-circle"></i>
-                @if (addForm.get('email')?.hasError('required')) { Email為必填項目 }
-                @if (addForm.get('email')?.hasError('email')) { Email格式錯誤 }
-            </span>
-            }
-        </div>
-
-        <div class="mb-4">
-            <label>Role:</label>
-            <p-select [options]="roleOptions" class="w-full" formControlName="role" optionLabel="label"
-                optionValue="value" placeholder="Select Role" />
-        </div>
+  <div [formGroup]="addForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="my-4">
+      <label>Name</label>
+      <input
+        pInputText
+        type="text"
+        class="w-full"
+        formControlName="name"
+        placeholder="Name"
+        [class.!border-red-500]="
+          addForm.get('name')?.invalid && addForm.get('name')?.touched
+        "
+      />
+      @if (addForm.get('name')?.invalid && addForm.get('name')?.touched) {
+        <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+          <i class="pi pi-exclamation-circle"></i>
+          @if (addForm.get('name')?.hasError('required')) {
+            姓名為必填項目
+          }
+          @if (addForm.get('name')?.hasError('minlength')) {
+            姓名長度至少需要 2 個字
+          }
+        </span>
+      }
+    </div>
+    <div class="my-4">
+      <label>Email:</label>
+      <input
+        pInputText
+        type="email"
+        class="w-full"
+        formControlName="email"
+        placeholder="Email"
+        [class.!border-red-500]="
+          addForm.get('email')?.invalid && addForm.get('email')?.touched
+        "
+      />
+      @if (addForm.get('email')?.invalid && addForm.get('email')?.touched) {
+        <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
+          <i class="pi pi-exclamation-circle"></i>
+          @if (addForm.get('email')?.hasError('required')) {
+            Email為必填項目
+          }
+          @if (addForm.get('email')?.hasError('email')) {
+            Email格式錯誤
+          }
+        </span>
+      }
     </div>
 
-    <div class="flex justify-end">
-        <button pButton [disabled]="addForm.invalid" (click)="onSubmit()" type="submit">+
-            Add Member
-        </button>
+    <div class="mb-4">
+      <label>Role:</label>
+      <p-select
+        [options]="roleOptions"
+        class="w-full"
+        formControlName="role"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Select Role"
+      />
     </div>
+  </div>
+
+  <div class="flex justify-end">
+    <button
+      pButton
+      [disabled]="addForm.invalid"
+      (click)="onSubmit()"
+      type="submit"
+    >
+      + Add Member
+    </button>
+  </div>
 </p-card>

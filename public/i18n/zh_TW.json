@@ -1,0 +1,64 @@
+{
+  "common": {
+    "cancel": "取消"
+  },
+  "breadcrumb": {
+    "members": "會員管理",
+    "memberList": "會員清單",
+    "addMember": "新增人員",
+    "createMember": "建立會員",
+    "memberDetail": "會員詳情",
+    "profile": "個人資料"
+  },
+  "member": {
+    "common": {
+      "name": "姓名",
+      "email": "電子郵件",
+      "role": "角色"
+    },
+    "list": {
+      "id": "編號"
+    },
+    "create": {
+      "firstName": "名字",
+      "lastName": "姓氏",
+      "phone": "手機號碼",
+      "birth": "生日",
+      "gender": "性別",
+      "male": "男性",
+      "female": "女性",
+      "other": "其他",
+      "status": "狀態",
+      "language": "語言",
+      "timeZone": "時區",
+      "note": "備註",
+      "createMember": "建立會員"
+    },
+    "validation": {
+      "required": "此欄位為必填",
+      "email": "電子郵件格式不正確",
+      "phone": "手機格式不正確"
+    }
+  },
+  "profile": {
+    "title": "帳號資訊與設定",
+    "description": "管理您的個人資料、安全憑證與系統管理權限。",
+    "managedMembers": "已管理會員",
+    "securityLevel": "系統安全等級",
+    "fullName": "使用者真實姓名",
+    "department": "所屬部門組織",
+    "primaryEmail": "主要聯絡信箱",
+    "lastLoginActivity": "最近一次登入活動",
+    "currentBrowserSession": "來自當前瀏覽器工作階段",
+    "passwordManagement": "帳號密碼管理",
+    "passwordDescription": "定期更改密碼可以提高帳號安全性。",
+    "switchAccount": "切換帳號",
+    "signOut": "登出系統",
+    "resetPassword": "重設密碼",
+    "securityAndLogin": "安全性與登入資訊",
+    "accountInformation": "基本帳務資料",
+    "auditLogDescription": "這些資訊會同步顯示於系統的操作日誌中。",
+    "superAdministrator": "最高權限管理員",
+    "highSecurityLevel": "高（2FA）"
+  }
+}

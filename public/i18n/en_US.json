@@ -1,0 +1,64 @@
+{
+  "common": {
+    "cancel": "Cancel"
+  },
+  "breadcrumb": {
+    "members": "Members",
+    "memberList": "Member List",
+    "addMember": "Add Member",
+    "createMember": "Create Member",
+    "memberDetail": "Member Detail",
+    "profile": "Profile"
+  },
+  "member": {
+    "common": {
+      "name": "Name",
+      "email": "Email",
+      "role": "Role"
+    },
+    "list": {
+      "id": "ID"
+    },
+    "create": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone Number",
+      "birth": "Birth",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "status": "Status",
+      "language": "Language",
+      "timeZone": "Time Zone",
+      "note": "Note",
+      "createMember": "Create Member"
+    },
+    "validation": {
+      "required": "This field is required.",
+      "email": "Invalid email format.",
+      "phone": "Invalid phone number format."
+    }
+  },
+  "profile": {
+    "title": "Account Information & Settings",
+    "description": "Manage your profile, security credentials, and administrative permissions.",
+    "managedMembers": "Managed Members",
+    "securityLevel": "Security Level",
+    "fullName": "Full Name",
+    "department": "Department / Organization",
+    "primaryEmail": "Primary Email Address",
+    "lastLoginActivity": "Last Login Activity",
+    "currentBrowserSession": "From the Current Browser Session",
+    "passwordManagement": "Password Management",
+    "passwordDescription": "Regular password changes help improve account security.",
+    "switchAccount": "Switch Account",
+    "signOut": "Sign Out",
+    "resetPassword": "Reset Password",
+    "securityAndLogin": "Security & Login Information",
+    "accountInformation": "Account Information",
+    "auditLogDescription": "This information will also be recorded in the system activity log.",
+    "superAdministrator": "Super Administrator",
+    "highSecurityLevel": "High (2FA)"
+  }
+}

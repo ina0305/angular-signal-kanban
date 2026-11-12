@@ -1,18 +1,17 @@
-import { Component, inject, input, output } from "@angular/core";
+import { Component, inject, input, output } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { TableModule } from "primeng/table";
-import { MemberStore } from "../../store/member.store";
+import { TableModule } from 'primeng/table';
+import { MemberStore } from '../../store/member.store';
 
 @Component({
-    selector: 'member-list',
-    imports: [TableModule, ButtonModule],
-    templateUrl: './member-list.component.html'
+  selector: 'member-list',
+  imports: [TableModule, ButtonModule],
+  templateUrl: './member-list.component.html',
 })
-
 export class MemberListComponent {
-    memberStore = inject(MemberStore);
+  memberStore = inject(MemberStore);
 
-    onDelete(id: string) {
-        this.memberStore.deleteMember(id);
-    }
+  onDelete(id: string) {
+    this.memberStore.deleteMember(id);
+  }
 }

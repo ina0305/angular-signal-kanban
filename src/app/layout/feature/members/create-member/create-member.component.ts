@@ -1,7 +1,13 @@
 import { Component, effect, inject, signal } from '@angular/core';
 
 // Form
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 // Route
 import { Router } from '@angular/router';
@@ -37,13 +43,12 @@ interface SelectOption {
     SelectModule,
     TextareaModule,
     ToastModule,
-    Spinner
+    Spinner,
   ],
   selector: 'app-create-member',
   styleUrl: './create-member.component.css',
   templateUrl: './create-member.component.html',
 })
-
 export class CreateMemberComponent {
   private fb = inject(FormBuilder);
   readonly route = inject(Router);
@@ -55,26 +60,26 @@ export class CreateMemberComponent {
   roleOptions: SelectOption[] = [
     { label: 'Admin', value: 'admin' },
     { label: 'Member', value: 'member' },
-    { label: 'Guest', value: 'guest' }
-  ]
+    { label: 'Guest', value: 'guest' },
+  ];
 
   statusOptions: SelectOption[] = [
     { label: 'Active', value: 'active' },
     { label: 'Pending', value: 'pending' },
-    { label: 'Inactive', value: 'inactive' }
-  ]
+    { label: 'Inactive', value: 'inactive' },
+  ];
 
   languageOptions: SelectOption[] = [
     { label: 'English', value: 'en_US' },
     { label: '繁體中文', value: 'zh_TW' },
-    { label: '日本語', value: 'Ja_jp' }
-  ]
+    { label: '日本語', value: 'Ja_jp' },
+  ];
 
   timeZoneOptions: SelectOption[] = [
     { label: 'UTC+8', value: 'utc8' },
     { label: 'UTC+9', value: 'utc9' },
-    { label: 'UTC+0', value: 'utc0' }
-  ]
+    { label: 'UTC+0', value: 'utc0' },
+  ];
 
   constructor() {
     this.createInfoForm = this.fb.group({
@@ -88,10 +93,9 @@ export class CreateMemberComponent {
       status: ['active'],
       language: ['zh_TW'],
       timeZone: ['utc8'],
-      note: ['']
-    })
+      note: [''],
+    });
   }
-
 
   onCancel() {
     this.route.navigate(['/members']);

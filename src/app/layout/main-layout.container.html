@@ -1,60 +1,67 @@
 <p-toolbar class="!bg-zinc-700 !rounded-none !text-white">
-    <ng-template #start>
-        <div class="text-xl pl-4">Angular Signal Kanban</div>
-    </ng-template>
-    <ng-template #center></ng-template>
-    <ng-template #end>
-        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" size="large"
-            shape="circle" />
-    </ng-template>
+  <ng-template #start>
+    <div class="text-xl pl-4">Angular Signal Kanban</div>
+  </ng-template>
+  <ng-template #center></ng-template>
+  <ng-template #end>
+    <p-avatar
+      image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+      size="large"
+      shape="circle"
+    />
+  </ng-template>
 </p-toolbar>
 <p-sidebar-layout class="!bg-slate-50">
-    <p-sidebar>
-        <p-sidebar-spacer />
-        <p-sidebar-aside>
-            <p-sidebar-panel>
-                <p-sidebar-header></p-sidebar-header>
-                <p-sidebar-content class="border-r border-zinc-200">
-                    @for (group of navGroup; track group.label) {
-                    @if (group.route) {
-                    <p-sidebar-menu-item class="!text-lg !text-zinc-500">
-                        <button pSidebarMenuButton [class.active-button]="router.url === group.route"
-                            (click)="navigateTo(group.route)" class="!p-4">
-                            <span>{{ group.label }}</span>
-                        </button>
-                    </p-sidebar-menu-item>
-                    } @else {
-                    <p-sidebar-group>
-                        <p-sidebar-group-label class="!p-4 !text-lg !text-zinc-500">
-                            {{ group.label }}
-                        </p-sidebar-group-label>
-                        <p-sidebar-group-content>
-                            <p-sidebar-menu>
-                                @for (item of group.items; track item.route) {
-                                <p-sidebar-menu-item>
-                                    <button pSidebarMenuButton [class.active-button]="router.url === item.route"
-                                        (click)="navigateTo(item.route)">
-                                        <span>{{ item.label }}</span>
-                                    </button>
-                                </p-sidebar-menu-item>
-                                }
-                            </p-sidebar-menu>
-                        </p-sidebar-group-content>
-                    </p-sidebar-group>
-                    }
-                    }
-                </p-sidebar-content>
-                <p-sidebar-footer>...</p-sidebar-footer>
-            </p-sidebar-panel>
-        </p-sidebar-aside>
-    </p-sidebar>
-    <p-sidebar-main>
-        <div class="flex">
-            @if(router.url !== '/'){
-            <p-breadcrumb [model]="memberStore.breadcrumbs()" [home]="home" />
-            }
-        </div>
-        <router-outlet />
-    </p-sidebar-main>
-
+  <p-sidebar>
+    <p-sidebar-spacer />
+    <p-sidebar-aside>
+      <p-sidebar-panel>
+        <p-sidebar-header></p-sidebar-header>
+        <p-sidebar-content class="border-r border-zinc-200">
+          @for (group of navGroup; track group.label) { @if (group.route) {
+          <p-sidebar-menu-item class="!text-lg !text-zinc-500">
+            <button
+              pSidebarMenuButton
+              [class.active-button]="router.url === group.route"
+              (click)="navigateTo(group.route)"
+              class="!p-4"
+            >
+              <span>{{ group.label }}</span>
+            </button>
+          </p-sidebar-menu-item>
+          } @else {
+          <p-sidebar-group>
+            <p-sidebar-group-label class="!p-4 !text-lg !text-zinc-500">
+              {{ group.label }}
+            </p-sidebar-group-label>
+            <p-sidebar-group-content>
+              <p-sidebar-menu>
+                @for (item of group.items; track item.route) {
+                <p-sidebar-menu-item>
+                  <button
+                    pSidebarMenuButton
+                    [class.active-button]="router.url === item.route"
+                    (click)="navigateTo(item.route)"
+                  >
+                    <span>{{ item.label }}</span>
+                  </button>
+                </p-sidebar-menu-item>
+                }
+              </p-sidebar-menu>
+            </p-sidebar-group-content>
+          </p-sidebar-group>
+          } }
+        </p-sidebar-content>
+        <p-sidebar-footer>...</p-sidebar-footer>
+      </p-sidebar-panel>
+    </p-sidebar-aside>
+  </p-sidebar>
+  <p-sidebar-main>
+    <div class="flex">
+      @if(router.url !== '/'){
+      <p-breadcrumb [model]="memberStore.breadcrumbs()" [home]="home" />
+      }
+    </div>
+    <router-outlet />
+  </p-sidebar-main>
 </p-sidebar-layout>

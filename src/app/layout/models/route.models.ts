@@ -1,12 +1,12 @@
 interface NavItem {
-    label: string;
-    icon: string;
-    route: string;
+  label: string;
+  icon: string;
+  route: string;
 }
 
 export interface NavGroup {
-    label: string;
-    route?: string;
-    expanded?: boolean;
-    items?: NavItem[];
+  label: string;
+  route?: string;
+  expanded?: boolean;
+  items?: NavItem[];
 }

@@ -1,17 +1,22 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject } from '@angular/core';
 
 // Form
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 // PrimeNG
-import { InputTextModule } from "primeng/inputtext";
+import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
-import { CardModule } from "primeng/card";
+import { CardModule } from 'primeng/card';
 
 // Store
-import { MemberStore } from "../../store/member.store";
-
+import { MemberStore } from '../../store/member.store';
 
 @Component({
   selector: 'add-member-form',
@@ -21,11 +26,10 @@ import { MemberStore } from "../../store/member.store";
     SelectModule,
     ButtonModule,
     ReactiveFormsModule,
-    CardModule
+    CardModule,
   ],
   templateUrl: './add-member-form.component.html',
 })
-
 export class AddMemberFormComponent {
   readonly memberStore = inject(MemberStore);
   private fb = inject(FormBuilder);
@@ -33,20 +37,22 @@ export class AddMemberFormComponent {
 
   readonly roleOptions = [
     {
-      label: 'Admin', value: 'admin'
+      label: 'Admin',
+      value: 'admin',
     },
     {
-      label: 'Edittor', value: 'edittor'
+      label: 'Edittor',
+      value: 'edittor',
     },
-    { label: 'Viewer', value: 'viewer' }
+    { label: 'Viewer', value: 'viewer' },
   ];
 
   constructor() {
     this.addForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      role: ['viewer', [Validators.required]]
-    })
+      role: ['viewer', [Validators.required]],
+    });
   }
 
   onSubmit() {
@@ -56,7 +62,7 @@ export class AddMemberFormComponent {
     this.addForm.reset({
       name: '',
       email: '',
-      role: 'viewer'
-    })
+      role: 'viewer',
+    });
   }
 }
