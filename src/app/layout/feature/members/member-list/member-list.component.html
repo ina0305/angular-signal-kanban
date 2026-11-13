@@ -1,26 +1,26 @@
 <div class="border border-zinc-200 rounded-md mx-8">
   <header class="flex justify-center text-xl p-4 bg-zinc-200">
-    Member List
+    {{ 'member.list.title' | translate }}
   </header>
   <p-table [value]="memberStore.items()">
     <ng-template #header>
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Role</th>
+        <th>{{ 'member.list.id' | translate }}</th>
+        <th>{{ 'member.common.name' | translate }}</th>
+        <th>{{ 'member.common.email' | translate }}</th>
+        <th>{{ 'member.common.role' | translate }}</th>
         <th></th>
       </tr>
     </ng-template>
     <ng-template #body let-member>
       <tr class="">
-        <td class="break-all">{{ member.id }}</td>
-        <td class="break-all">{{ member.name }}</td>
-        <td class="break-all">{{ member.email }}</td>
-        <td class="break-all">{{ member.role }}</td>
+        <td class="break-all">{{ member.id | translate }}</td>
+        <td class="break-all">{{ member.name | translate }}</td>
+        <td class="break-all">{{ member.email | translate }}</td>
+        <td class="break-all">{{ member.role | translate }}</td>
         <td>
           <button pButton severity="danger" (click)="onDelete(member.id)">
-            Remove
+            {{ 'member.btn.delete' | translate }}
           </button>
         </td>
       </tr>

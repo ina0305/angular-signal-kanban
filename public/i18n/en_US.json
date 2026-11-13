@@ -2,13 +2,26 @@
   "common": {
     "cancel": "Cancel"
   },
-  "breadcrumb": {
+  "labels": {
+    "dashboard": "Dashboard",
     "members": "Members",
+    "profile": "Profile",
     "memberList": "Member List",
     "addMember": "Add Member",
     "createMember": "Create Member",
-    "memberDetail": "Member Detail",
-    "profile": "Profile"
+    "memberDetail": "Member Detail"
+  },
+  "dashboard": {
+    "memberOverview": "Member Overview",
+    "totalMembers": "Total Members",
+    "createNewMember": "Create New Member",
+    "recentlyAddedMembers": "Recently Added Members",
+    "manageAccount": "Manage Account Information",
+    "securityAudit": "Security Audit",
+    "welcomeBack": "Welcome Back",
+    "systemSummary": "This is your system operation summary and latest updates for today.",
+    "systemManagement": "System Management Quick Access",
+    "systemManagementSubheader": "Click to quickly navigate to core subsystems"
   },
   "member": {
     "common": {
@@ -16,7 +29,13 @@
       "email": "Email",
       "role": "Role"
     },
+    "title": {
+      "addNewMember": "Add New Member",
+      "accountInfo": "Account Information",
+      "basicInfo": "Basic Information"
+    },
     "list": {
+      "title": "Member List",
       "id": "ID"
     },
     "create": {
@@ -34,10 +53,39 @@
       "note": "Note",
       "createMember": "Create Member"
     },
+    "role": {
+      "admin": "Admin",
+      "user": "User",
+      "guest": "Guest",
+      "edittor": "Edittor",
+      "viewer": "Viewer"
+    },
+    "status": {
+      "active": "Active",
+      "pending": "Pending",
+      "inactive": "Inactive"
+    },
+    "timeZone": {
+      "utc8": "UTC+8",
+      "utc9": "UTC+9",
+      "utc0": "UTC+0"
+    },
+    "language": {
+      "english": "English",
+      "traditionalChinese": "Traditional Chinese",
+      "japanese": "Japanese"
+    },
     "validation": {
       "required": "This field is required.",
       "email": "Invalid email format.",
-      "phone": "Invalid phone number format."
+      "phone": "Invalid phone number format.",
+      "nameMinlength": "Name must be at least 2 characters long"
+    },
+    "btn": {
+      "add": "Add",
+      "create": "Create",
+      "cancel": "Cancel",
+      "delete": "Delete"
     }
   },
   "profile": {

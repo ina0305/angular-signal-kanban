@@ -25,6 +25,7 @@ import { MessageService } from 'primeng/api';
 
 // PrimeNG icon
 import { Spinner } from '@primeicons/angular/spinner';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface SelectOption {
   label: string;
@@ -44,6 +45,7 @@ interface SelectOption {
     TextareaModule,
     ToastModule,
     Spinner,
+    TranslatePipe,
   ],
   selector: 'app-create-member',
   styleUrl: './create-member.component.css',
@@ -58,27 +60,27 @@ export class CreateMemberComponent {
   isSubmitting = signal(false);
 
   roleOptions: SelectOption[] = [
-    { label: 'Admin', value: 'admin' },
-    { label: 'Member', value: 'member' },
-    { label: 'Guest', value: 'guest' },
+    { label: 'member.role.admin', value: 'admin' },
+    { label: 'member.role.user', value: 'user' },
+    { label: 'member.role.guest', value: 'guest' },
   ];
 
   statusOptions: SelectOption[] = [
-    { label: 'Active', value: 'active' },
-    { label: 'Pending', value: 'pending' },
-    { label: 'Inactive', value: 'inactive' },
+    { label: 'member.status.active', value: 'active' },
+    { label: 'member.status.pending', value: 'pending' },
+    { label: 'member.status.inactive', value: 'inactive' },
   ];
 
   languageOptions: SelectOption[] = [
-    { label: 'English', value: 'en_US' },
-    { label: '繁體中文', value: 'zh_TW' },
-    { label: '日本語', value: 'Ja_jp' },
+    { label: 'member.language.english', value: 'en_US' },
+    { label: 'member.language.traditionalChinese', value: 'zh_TW' },
+    { label: 'member.language.japanese', value: 'Ja_jp' },
   ];
 
   timeZoneOptions: SelectOption[] = [
-    { label: 'UTC+8', value: 'utc8' },
-    { label: 'UTC+9', value: 'utc9' },
-    { label: 'UTC+0', value: 'utc0' },
+    { label: 'member.timeZone.utc8', value: 'utc8' },
+    { label: 'member.timeZone.utc9', value: 'utc9' },
+    { label: 'member.timeZone.utc0', value: 'utc0' },
   ];
 
   constructor() {

@@ -8,6 +8,7 @@ import {
 } from '@ngrx/signals';
 import { inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { TranslateService } from '@ngx-translate/core';
 
 // PrimeNg
 import { MenuItem } from 'primeng/api';
@@ -31,25 +32,25 @@ const members: Member[] = [
     id: 'mem_001',
     name: 'Olivia Ryhe',
     email: 'olivia@company.com',
-    role: 'Admin',
+    role: 'member.role.admin',
   },
   {
     id: 'mem_002',
     name: 'Alex Miller',
     email: 'alex.m@company.com',
-    role: 'Editor',
+    role: 'member.role.editor',
   },
   {
     id: 'mem_003',
     name: 'Sarah Connor',
     email: 'sarah.c@company.com',
-    role: 'Viewer',
+    role: 'member.role.viewer',
   },
   {
     id: 'mem_004',
     name: 'Tom Hardy',
     email: 'tom.h@company.com',
-    role: 'Viewer',
+    role: 'member.role.viewer',
   },
 ];
 
@@ -71,27 +72,37 @@ export const MemberStore = signalStore(
       // 透過 inject 拿到 Angular 路由工具
       const router = inject(Router);
       const activatedRoute = inject(ActivatedRoute);
+      const translate = inject(TranslateService);
 
-      // 啟動背景監聽：只要網址改變 (NavigationEnd)，就去扒出路由 data 裡面的麵包屑
+      const updateBreadcrumbs = () => {
+        let route = activatedRoute?.root;
+        while (route?.firstChild) {
+          route = route.firstChild;
+        }
+
+        const breadcrumbData =
+          (route?.snapshot?.data['breadcrumb'] as
+            { key: string }[] | undefined) ?? [];
+
+        patchState(store, {
+          breadcrumbs: breadcrumbData.map(({ key }) => ({
+            label: translate.instant(key),
+          })),
+        });
+      };
+
       router.events
         .pipe(
           filter((event) => event instanceof NavigationEnd),
-          takeUntilDestroyed(), // 自動解綁，防止記憶體洩漏
+          takeUntilDestroyed(),
         )
-        .subscribe(() => {
-          // 遞迴尋找當前最深層、真正被啟用的子路由節點
-          let route = activatedRoute.root;
-          while (route.firstChild) {
-            route = route.firstChild;
-          }
+        .subscribe(updateBreadcrumbs);
 
-          // 從該路由節點的 snapshot.data 裡面安全拿到我們寫在 app.routes.ts 的 breadcrumb
-          const breadcrumbData =
-            (route.snapshot.data['breadcrumb'] as MenuItem[]) || [];
+      translate.onLangChange
+        .pipe(takeUntilDestroyed())
+        .subscribe(updateBreadcrumbs);
 
-          // 💡 自動同步：直接 patchState 更新全域麵包屑資料，畫面立刻連動！
-          patchState(store, { breadcrumbs: breadcrumbData });
-        });
+      updateBreadcrumbs();
     },
   }),
   withMethods((store, http = inject(HttpClient)) => ({

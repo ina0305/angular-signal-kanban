@@ -26,13 +26,13 @@
               (click)="navigateTo(group.route)"
               class="!p-4"
             >
-              <span>{{ group.label }}</span>
+              <span>{{ group.label | translate }}</span>
             </button>
           </p-sidebar-menu-item>
           } @else {
           <p-sidebar-group>
             <p-sidebar-group-label class="!p-4 !text-lg !text-zinc-500">
-              {{ group.label }}
+              {{ group.label | translate }}
             </p-sidebar-group-label>
             <p-sidebar-group-content>
               <p-sidebar-menu>
@@ -43,7 +43,7 @@
                     [class.active-button]="router.url === item.route"
                     (click)="navigateTo(item.route)"
                   >
-                    <span>{{ item.label }}</span>
+                    <span>{{ item.label | translate }}</span>
                   </button>
                 </p-sidebar-menu-item>
                 }

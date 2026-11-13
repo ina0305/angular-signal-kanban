@@ -17,6 +17,7 @@ import { CardModule } from 'primeng/card';
 
 // Store
 import { MemberStore } from '../../store/member.store';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'add-member-form',
@@ -27,6 +28,7 @@ import { MemberStore } from '../../store/member.store';
     ButtonModule,
     ReactiveFormsModule,
     CardModule,
+    TranslatePipe,
   ],
   templateUrl: './add-member-form.component.html',
 })
@@ -37,14 +39,14 @@ export class AddMemberFormComponent {
 
   readonly roleOptions = [
     {
-      label: 'Admin',
+      label: 'member.role.admin',
       value: 'admin',
     },
     {
-      label: 'Edittor',
-      value: 'edittor',
+      label: 'member.role.editor',
+      value: 'editor',
     },
-    { label: 'Viewer', value: 'viewer' },
+    { label: 'member.role.viewer', value: 'viewer' },
   ];
 
   constructor() {

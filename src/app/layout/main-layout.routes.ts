@@ -25,8 +25,8 @@ export const routes: Routes = [
               ),
             data: {
               breadcrumb: [
-                { key: 'breadcrumb.members' },
-                { key: 'breadcrumb.memberList' },
+                { key: 'labels.members' },
+                { key: 'labels.memberList' },
               ],
             },
           },
@@ -38,8 +38,8 @@ export const routes: Routes = [
               ),
             data: {
               breadcrumb: [
-                { key: 'breadcrumb.members' },
-                { key: 'breadcrumb.addMember' },
+                { key: 'labels.members' },
+                { key: 'labels.addMember' },
               ],
             },
           },
@@ -51,8 +51,8 @@ export const routes: Routes = [
               ),
             data: {
               breadcrumb: [
-                { key: 'breadcrumb.members' },
-                { key: 'breadcrumb.createMember' },
+                { key: 'labels.members' },
+                { key: 'labels.createMember' },
               ],
             },
           },
@@ -64,8 +64,8 @@ export const routes: Routes = [
               ),
             data: {
               breadcrumb: [
-                { key: 'breadcrumb.members' },
-                { key: 'breadcrumb.memberDetail' },
+                { key: 'labels.members' },
+                { key: 'labels.memberDetail' },
               ],
             },
           },
@@ -77,7 +77,7 @@ export const routes: Routes = [
           import('./feature/profile/profile.component').then(
             (m) => m.ProfileComponent,
           ),
-        data: { breadcrumb: [{ key: 'breadcrumb.profile' }] },
+        data: { breadcrumb: [{ key: 'labels.profile' }] },
       },
     ],
   },

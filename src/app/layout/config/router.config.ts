@@ -2,32 +2,32 @@ import { NavGroup } from '../models/route.models';
 
 export const NAV_GROUPS: NavGroup[] = [
   {
-    label: 'Dashboard',
+    label: 'labels.dashboard',
     route: '/',
   },
   {
-    label: 'Members',
+    label: 'labels.members',
     expanded: true,
     items: [
       {
-        label: 'Member List',
+        label: 'labels.memberList',
         icon: 'users',
         route: '/members',
       },
       {
-        label: 'Add Member',
+        label: 'labels.addMember',
         icon: 'plus',
         route: '/members/add',
       },
       {
-        label: 'Create Member',
+        label: 'labels.createMember',
         icon: 'user-plus',
         route: '/members/create',
       },
     ],
   },
   {
-    label: 'Profile',
+    label: 'labels.profile',
     route: '/profile',
   },
 ];

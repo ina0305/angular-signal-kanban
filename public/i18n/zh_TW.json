@@ -2,21 +2,40 @@
   "common": {
     "cancel": "取消"
   },
-  "breadcrumb": {
+  "labels": {
+    "dashboard": "儀表板",
     "members": "會員管理",
+    "profile": "個人資料",
     "memberList": "會員清單",
     "addMember": "新增人員",
     "createMember": "建立會員",
-    "memberDetail": "會員詳情",
-    "profile": "個人資料"
+    "memberDetail": "會員詳情"
+  },
+  "dashboard": {
+    "memberOverview": "會員概況",
+    "totalMembers": "會員總數",
+    "createNewMember": "建立全新會員",
+    "recentlyAddedMembers": "最近新增會員",
+    "manageAccount": "前往帳號資訊設定",
+    "securityAudit": "安全營運診斷",
+    "welcomeBack": "歡迎回來",
+    "systemSummary": "這是您今日的系統營運摘要與最新動態。",
+    "systemManagement": "系統管理快速通道",
+    "systemManagementSubheader": "點擊即可快速跳轉至核心子系統"
   },
   "member": {
+    "title": {
+      "addNewMember": "新增人員",
+      "accountInfo": "帳號資訊",
+      "basicInfo": "基本資料"
+    },
     "common": {
       "name": "姓名",
       "email": "電子郵件",
       "role": "角色"
     },
     "list": {
+      "title": "會員清單",
       "id": "編號"
     },
     "create": {
@@ -32,12 +51,45 @@
       "language": "語言",
       "timeZone": "時區",
       "note": "備註",
-      "createMember": "建立會員"
+      "createMember": "建立會員",
+      "role": "角色",
+      "accountInfo": "帳號資訊",
+      "basicInfo": "基本資料",
+      "otherSettings": "其他設定"
+    },
+    "language": {
+      "english": "English",
+      "traditionalChinese": "繁體中文",
+      "japanese": "日本語"
+    },
+    "status": {
+      "active": "啟用",
+      "pending": "待審核",
+      "inactive": "停用"
+    },
+    "timeZone": {
+      "utc8": "UTC+8",
+      "utc9": "UTC+9",
+      "utc0": "UTC+0"
+    },
+    "role": {
+      "admin": "管理員",
+      "user": "使用者",
+      "guest": "訪客",
+      "editor": "編輯者",
+      "viewer": "檢視者"
     },
     "validation": {
       "required": "此欄位為必填",
       "email": "電子郵件格式不正確",
-      "phone": "手機格式不正確"
+      "phone": "手機格式不正確",
+      "nameMinlength": "姓名長度至少需要 2 個字"
+    },
+    "btn": {
+      "add": "新增",
+      "create": "建立",
+      "cancel": "取消",
+      "delete": "刪除"
     }
   },
   "profile": {

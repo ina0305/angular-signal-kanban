@@ -9,13 +9,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { SidebarModule } from 'primeng/sidebar';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { MenuItem } from 'primeng/api';
-
-// Primeng icon
-import { Home } from '@primeicons/angular/home';
-import { User } from '@primeicons/angular/user';
-import { Users } from '@primeicons/angular/users';
-import { Plus } from '@primeicons/angular/plus';
-import { UserPlus } from '@primeicons/angular/user-plus';
+import { TranslatePipe } from '@ngx-translate/core';
 
 // Store
 import { MemberStore } from './feature/store/member.store';
@@ -27,12 +21,9 @@ import { NAV_GROUPS } from './config/router.config';
     ToolbarModule,
     AvatarModule,
     SidebarModule,
-    // Home,
-    // Plus,
-    // User,
-    // Users,
     RouterOutlet,
     BreadcrumbModule,
+    TranslatePipe,
     // UserPlus
   ],
   templateUrl: './main-layout.container.html',

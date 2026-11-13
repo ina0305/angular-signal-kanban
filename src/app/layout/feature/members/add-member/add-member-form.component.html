@@ -1,7 +1,10 @@
-<p-card class="mx-8 shadow-sm" header="Add New Member">
+<p-card
+  class="mx-8 shadow-sm"
+  header="{{ 'member.title.addNewMember' | translate }}"
+>
   <div [formGroup]="addForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div class="my-4">
-      <label>Name</label>
+      <label>{{ 'member.common.name' | translate }}</label>
       <input
         pInputText
         type="text"
@@ -16,16 +19,16 @@
         <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
           <i class="pi pi-exclamation-circle"></i>
           @if (addForm.get('name')?.hasError('required')) {
-            姓名為必填項目
+            {{ 'member.validation.required' | translate }}
           }
           @if (addForm.get('name')?.hasError('minlength')) {
-            姓名長度至少需要 2 個字
+            {{ 'member.validation.nameMinlength' | translate }}
           }
         </span>
       }
     </div>
     <div class="my-4">
-      <label>Email:</label>
+      <label>{{ 'member.common.email' | translate }}</label>
       <input
         pInputText
         type="email"
@@ -40,17 +43,17 @@
         <span class="text-xs text-red-500 flex items-center gap-1 mt-1">
           <i class="pi pi-exclamation-circle"></i>
           @if (addForm.get('email')?.hasError('required')) {
-            Email為必填項目
+            {{ 'member.validation.required' | translate }}
           }
           @if (addForm.get('email')?.hasError('email')) {
-            Email格式錯誤
+            {{ 'member.validation.email' | translate }}
           }
         </span>
       }
     </div>
 
     <div class="mb-4">
-      <label>Role:</label>
+      <label>{{ 'member.common.role' | translate }}</label>
       <p-select
         [options]="roleOptions"
         class="w-full"
@@ -58,7 +61,14 @@
         optionLabel="label"
         optionValue="value"
         placeholder="Select Role"
-      />
+      >
+        <ng-template #item let-option>
+          <span>{{ option.label | translate }}</span>
+        </ng-template>
+        <ng-template #selectedItem let-option>
+          <span>{{ option.label | translate }}</span>
+        </ng-template>
+      </p-select>
     </div>
   </div>
 
@@ -69,7 +79,7 @@
       (click)="onSubmit()"
       type="submit"
     >
-      + Add Member
+      {{ 'member.btn.add' | translate }}
     </button>
   </div>
 </p-card>
