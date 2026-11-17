@@ -1,23 +1,42 @@
 <div class="border border-zinc-200 rounded-md mx-8">
-  <header class="flex justify-center text-xl p-4 bg-zinc-200">
-    {{ 'member.list.title' | translate }}
-  </header>
-  <p-table [value]="memberStore.items()">
+  <div class="flex justify-between items-center p-4 border-b border-zinc-200">
+    <h4 class="text-sky-500">{{ 'member.list.title' | translate }}</h4>
+    <div class="flex items-center gap-2">
+      <p-button label="按鈕一" severity="info">
+        <i class="fas fa-search"></i>
+      </p-button>
+      <p-button label="按鈕二" severity="success">
+        <i class="fas fa-plus"></i>
+      </p-button>
+    </div>
+  </div>
+
+  <p-table [value]="memberStore.items()" stripedRows>
     <ng-template #header>
       <tr>
         <th>{{ 'member.list.id' | translate }}</th>
         <th>{{ 'member.common.name' | translate }}</th>
         <th>{{ 'member.common.email' | translate }}</th>
         <th>{{ 'member.common.role' | translate }}</th>
+        <th>{{ 'member.common.status' | translate }}</th>
+        <th>{{ 'member.common.createTime' | translate }}</th>
+
         <th></th>
       </tr>
     </ng-template>
     <ng-template #body let-member>
       <tr class="">
-        <td class="break-all">{{ member.id | translate }}</td>
-        <td class="break-all">{{ member.name | translate }}</td>
-        <td class="break-all">{{ member.email | translate }}</td>
-        <td class="break-all">{{ member.role | translate }}</td>
+        <td class="break-all">{{ member.id }}</td>
+        <td class="break-all">{{ member.firstName }} {{ member.lastName }}</td>
+        <td class="break-all">{{ member.email }}</td>
+        <td class="break-all">
+          {{ 'member.role.' + member.role | translate }}
+        </td>
+        <td class="break-all">
+          {{ 'member.status.' + member.status | translate }}
+        </td>
+        <td class="break-all">{{ member.createTime }}</td>
+
         <td>
           <button pButton severity="danger" (click)="onDelete(member.id)">
             {{ 'member.btn.delete' | translate }}
