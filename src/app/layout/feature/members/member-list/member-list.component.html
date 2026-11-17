@@ -9,15 +9,25 @@
         <th>{{ 'member.common.name' | translate }}</th>
         <th>{{ 'member.common.email' | translate }}</th>
         <th>{{ 'member.common.role' | translate }}</th>
+        <th>{{ 'member.common.status' | translate }}</th>
+        <th>{{ 'member.common.createTime' | translate }}</th>
+
         <th></th>
       </tr>
     </ng-template>
     <ng-template #body let-member>
       <tr class="">
-        <td class="break-all">{{ member.id | translate }}</td>
-        <td class="break-all">{{ member.name | translate }}</td>
-        <td class="break-all">{{ member.email | translate }}</td>
-        <td class="break-all">{{ member.role | translate }}</td>
+        <td class="break-all">{{ member.id }}</td>
+        <td class="break-all">{{ member.firstName }} {{ member.lastName }}</td>
+        <td class="break-all">{{ member.email }}</td>
+        <td class="break-all">
+          {{ 'member.role.' + member.role | translate }}
+        </td>
+        <td class="break-all">
+          {{ 'member.status.' + member.status | translate }}
+        </td>
+        <td class="break-all">{{ member.createTime }}</td>
+
         <td>
           <button pButton severity="danger" (click)="onDelete(member.id)">
             {{ 'member.btn.delete' | translate }}

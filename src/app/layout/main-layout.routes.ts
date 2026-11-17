@@ -31,19 +31,6 @@ export const routes: Routes = [
             },
           },
           {
-            path: 'add',
-            loadComponent: () =>
-              import('./feature/members/add-member/add-member-form.component').then(
-                (m) => m.AddMemberFormComponent,
-              ),
-            data: {
-              breadcrumb: [
-                { key: 'labels.members' },
-                { key: 'labels.addMember' },
-              ],
-            },
-          },
-          {
             path: 'create',
             loadComponent: () =>
               import('./feature/members/create-member/create-member.component').then(

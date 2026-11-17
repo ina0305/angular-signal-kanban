@@ -19,38 +19,56 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 // Rxjs
 import { filter } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { MemberInfo } from '../../models/member.model';
 
-export interface Member {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-}
-
-const members: Member[] = [
+const members: MemberInfo[] = [
   {
     id: 'mem_001',
-    name: 'Olivia Ryhe',
+    firstName: 'Olivia',
+    lastName: 'Ryhe',
     email: 'olivia@company.com',
-    role: 'member.role.admin',
+    role: 'admin',
+    status: 'active',
+    gender: 'female',
+    createTime: '2026-11-02 11:22 (Taipei)',
+    language: 'en_US',
+    timeZone: 'utc8',
   },
   {
     id: 'mem_002',
-    name: 'Alex Miller',
+    firstName: 'Alex',
+    lastName: 'Miller',
     email: 'alex.m@company.com',
-    role: 'member.role.editor',
+    role: 'editor',
+    status: 'active',
+    gender: 'male',
+    createTime: '2026-11-01 10:47 (Taipei)',
+    language: 'en_US',
+    timeZone: 'utc8',
   },
   {
     id: 'mem_003',
-    name: 'Sarah Connor',
+    firstName: 'Sarah',
+    lastName: 'Connor',
     email: 'sarah.c@company.com',
-    role: 'member.role.viewer',
+    role: 'viewer',
+    status: 'inactive',
+    gender: 'female',
+    createTime: '2026-11-1 16:41 (Taipei)',
+    language: 'en_US',
+    timeZone: 'utc8',
   },
   {
     id: 'mem_004',
-    name: 'Tom Hardy',
+    firstName: 'Tom',
+    lastName: 'Hardy',
     email: 'tom.h@company.com',
-    role: 'member.role.viewer',
+    role: 'viewer',
+    status: 'pending',
+    gender: 'male',
+    createTime: '2026-10-29 14:02 (Taipei)',
+    language: 'en_US',
+    timeZone: 'utc8',
   },
 ];
 
@@ -106,8 +124,8 @@ export const MemberStore = signalStore(
     },
   }),
   withMethods((store, http = inject(HttpClient)) => ({
-    addMember(newMember: Omit<Member, 'id'>) {
-      const memberWithId: Member = {
+    createMember(newMember: Omit<MemberInfo, 'id'>) {
+      const memberWithId: MemberInfo = {
         ...newMember,
         id: `mem_${Date.now()}`,
       };

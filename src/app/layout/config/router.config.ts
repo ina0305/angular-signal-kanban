@@ -15,11 +15,6 @@ export const NAV_GROUPS: NavGroup[] = [
         route: '/members',
       },
       {
-        label: 'labels.addMember',
-        icon: 'plus',
-        route: '/members/add',
-      },
-      {
         label: 'labels.createMember',
         icon: 'user-plus',
         route: '/members/create',

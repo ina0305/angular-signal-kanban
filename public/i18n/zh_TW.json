@@ -32,7 +32,9 @@
     "common": {
       "name": "姓名",
       "email": "電子郵件",
-      "role": "角色"
+      "role": "角色",
+      "status": "狀態",
+      "createTime": "建立時間"
     },
     "list": {
       "title": "會員清單",

@@ -26,6 +26,7 @@ import { MessageService } from 'primeng/api';
 // PrimeNG icon
 import { Spinner } from '@primeicons/angular/spinner';
 import { TranslatePipe } from '@ngx-translate/core';
+import { MemberStore } from '../../store/member.store';
 
 interface SelectOption {
   label: string;
@@ -54,7 +55,8 @@ interface SelectOption {
 export class CreateMemberComponent {
   private fb = inject(FormBuilder);
   readonly route = inject(Router);
-  // readonly messageService = inject(MessageService);
+  readonly store = inject(MemberStore);
+
   createInfoForm: FormGroup;
 
   isSubmitting = signal(false);
@@ -110,9 +112,8 @@ export class CreateMemberComponent {
     }
 
     this.isSubmitting.set(true);
-
+    this.store.createMember(this.createInfoForm.value);
     setTimeout(() => {
-      console.log(this.createInfoForm.value);
       this.isSubmitting.set(false);
     }, 2000);
   }
