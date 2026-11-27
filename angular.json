@@ -68,7 +68,8 @@
               "buildTarget": "layout-practice:build:production"
             },
             "development": {
-              "buildTarget": "layout-practice:build:development"
+              "buildTarget": "layout-practice:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

@@ -12,6 +12,34 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Member API
+
+The Express SSR server provides the member API and stores data in
+`data/members.sqlite` using Node.js's built-in SQLite support. Use Node.js 22.13+
+to run the server.
+
+Build and start the SSR server:
+
+```bash
+npm run build
+npm run serve:ssr:layout-practice
+```
+
+For frontend development with `ng serve`, keep the SSR server running on port 4000. The development proxy forwards `/api` requests to it.
+
+Available endpoints:
+
+- `GET /api/members`
+- `POST /api/members`
+- `DELETE /api/members/:id`
+
+## Rendering mode
+
+The app currently uses CSR so pages render in the browser. The previous SSR and
+prerender route configuration is kept commented out in
+`src/app/app.routes.server.ts` for comparison. The Express API and SQLite
+database are used in both modes.
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:

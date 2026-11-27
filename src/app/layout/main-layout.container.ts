@@ -12,7 +12,7 @@ import { MenuItem } from 'primeng/api';
 import { TranslatePipe } from '@ngx-translate/core';
 
 // Store
-import { MemberStore } from './feature/store/member.store';
+import { MemberStore } from './feature/service/member.store';
 import { NAV_GROUPS } from './config/router.config';
 
 @Component({

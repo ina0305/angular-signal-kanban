@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 
 // Form
 import {
@@ -20,13 +20,11 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
 import { TextareaModule } from 'primeng/textarea';
-import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
 
 // PrimeNG icon
 import { Spinner } from '@primeicons/angular/spinner';
 import { TranslatePipe } from '@ngx-translate/core';
-import { MemberStore } from '../../store/member.store';
+import { MemberStore } from '../../service/member.store';
 
 interface SelectOption {
   label: string;
@@ -44,7 +42,6 @@ interface SelectOption {
     ButtonModule,
     SelectModule,
     TextareaModule,
-    ToastModule,
     Spinner,
     TranslatePipe,
   ],
@@ -105,16 +102,20 @@ export class CreateMemberComponent {
     this.route.navigate(['/members']);
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.createInfoForm.invalid) {
       this.createInfoForm.markAllAsTouched();
       return;
     }
 
     this.isSubmitting.set(true);
-    this.store.createMember(this.createInfoForm.value);
-    setTimeout(() => {
+    try {
+      // 表單送出後等待 API 完成，再解除 loading 狀態。
+      await this.store.createMember(this.createInfoForm.getRawValue());
+    } catch (error) {
+      console.error('Failed to create member:', error);
+    } finally {
       this.isSubmitting.set(false);
-    }, 2000);
+    }
   }
 }

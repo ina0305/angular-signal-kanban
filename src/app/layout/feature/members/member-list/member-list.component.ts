@@ -1,7 +1,7 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { MemberStore } from '../../store/member.store';
+import { MemberStore } from '../../service/member.store';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -12,7 +12,12 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class MemberListComponent {
   memberStore = inject(MemberStore);
 
-  onDelete(id: string) {
-    this.memberStore.deleteMember(id);
+  async onDelete(id: string) {
+    try {
+      // Store 會等 server 確認刪除成功後才更新清單。
+      await this.memberStore.deleteMember(id);
+    } catch (error) {
+      console.error('Failed to delete member:', error);
+    }
   }
 }

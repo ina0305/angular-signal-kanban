@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 // PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import { MemberStore } from '../store/member.store';
+import { MemberStore } from '../service/member.store';
 import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 

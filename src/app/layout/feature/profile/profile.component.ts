@@ -7,7 +7,7 @@ import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 
 // Store
-import { MemberStore } from '../store/member.store';
+import { MemberStore } from '../service/member.store';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
